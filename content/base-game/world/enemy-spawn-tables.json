@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "frontier_enemies",
+      "name": "frontier_enemies",
+      "tags": [],
+      "kind": "enemy",
+      "entries": [
+        {
+          "definitionId": "beetle_enemy",
+          "weight": 1,
+          "probability": 1
+        },
+        {
+          "definitionId": "spore_enemy",
+          "weight": 1,
+          "probability": 1
+        },
+        {
+          "definitionId": "sentry_enemy",
+          "weight": 1,
+          "probability": 1
+        }
+      ],
+      "min": 5,
+      "max": 10,
+      "chance": 1,
+      "attempts": 500,
+      "minDistance": 80
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "health",
+      "name": "health",
+      "tags": [],
+      "spriteId": "crystal",
+      "kind": "heal",
+      "amount": 30
+    },
+    {
+      "id": "ammo_pickup",
+      "name": "ammo_pickup",
+      "tags": [],
+      "spriteId": "ammo",
+      "kind": "ammo",
+      "amount": 40
+    }
+  ]
+}

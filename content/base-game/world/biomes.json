@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "overgrowth",
+      "name": "overgrowth",
+      "tags": [],
+      "paletteId": "overgrowth_tiles",
+      "musicId": "frontier",
+      "background": "#182822"
+    },
+    {
+      "id": "foundry",
+      "name": "foundry",
+      "tags": [],
+      "paletteId": "foundry_tiles",
+      "musicId": "frontier",
+      "background": "#2b201d"
+    }
+  ]
+}

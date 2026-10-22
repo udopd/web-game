@@ -1,0 +1,299 @@
+{
+  "additionalProperties": false,
+  "$id": "https://emberfall.local/schema/bosses",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "items": {
+      "maxItems": 10000,
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tags",
+          "spriteId",
+          "animationSet",
+          "collision",
+          "stats",
+          "difficultyRating",
+          "contactDamage",
+          "xpReward",
+          "rewards",
+          "phases"
+        ],
+        "properties": {
+          "id": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "maxLength": 100,
+            "type": "string"
+          },
+          "tags": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "maxLength": 160,
+              "type": "string"
+            }
+          },
+          "spriteId": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string",
+            "x-collection": "sprites"
+          },
+          "animationSet": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "idle"
+            ],
+            "properties": {
+              "idle": {
+                "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                "type": "string",
+                "x-collection": "animations"
+              },
+              "run": {
+                "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                "type": "string",
+                "x-collection": "animations"
+              },
+              "hurt": {
+                "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                "type": "string",
+                "x-collection": "animations"
+              },
+              "death": {
+                "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                "type": "string",
+                "x-collection": "animations"
+              },
+              "victory": {
+                "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                "type": "string",
+                "x-collection": "animations"
+              },
+              "windup": {
+                "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                "type": "string",
+                "x-collection": "animations"
+              },
+              "attack": {
+                "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                "type": "string",
+                "x-collection": "animations"
+              },
+              "open": {
+                "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                "type": "string",
+                "x-collection": "animations"
+              }
+            }
+          },
+          "collision": {
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "type": "object",
+                "required": [
+                  "shape",
+                  "radius"
+                ],
+                "properties": {
+                  "shape": {
+                    "const": "circle",
+                    "type": "string"
+                  },
+                  "radius": {
+                    "minimum": 1,
+                    "maximum": 128,
+                    "default": 10,
+                    "type": "number"
+                  }
+                }
+              },
+              {
+                "additionalProperties": false,
+                "type": "object",
+                "required": [
+                  "shape",
+                  "width",
+                  "height"
+                ],
+                "properties": {
+                  "shape": {
+                    "const": "box",
+                    "type": "string"
+                  },
+                  "width": {
+                    "minimum": 1,
+                    "maximum": 256,
+                    "default": 20,
+                    "type": "number"
+                  },
+                  "height": {
+                    "minimum": 1,
+                    "maximum": 256,
+                    "default": 20,
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "stats": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "maxHealth",
+              "moveSpeed",
+              "armor",
+              "damageMultiplier",
+              "fireRateMultiplier",
+              "critChance",
+              "pickupRadius"
+            ],
+            "properties": {
+              "maxHealth": {
+                "minimum": 1,
+                "maximum": 100000,
+                "default": 100,
+                "type": "number"
+              },
+              "moveSpeed": {
+                "minimum": 1,
+                "maximum": 600,
+                "default": 120,
+                "type": "number"
+              },
+              "armor": {
+                "minimum": 0,
+                "maximum": 1000,
+                "default": 0,
+                "type": "number"
+              },
+              "damageMultiplier": {
+                "minimum": 0.01,
+                "maximum": 100,
+                "default": 1,
+                "type": "number"
+              },
+              "fireRateMultiplier": {
+                "minimum": 0.05,
+                "maximum": 20,
+                "default": 1,
+                "type": "number"
+              },
+              "critChance": {
+                "minimum": 0,
+                "maximum": 1,
+                "default": 0,
+                "type": "number"
+              },
+              "pickupRadius": {
+                "minimum": 8,
+                "maximum": 200,
+                "default": 24,
+                "type": "number"
+              }
+            }
+          },
+          "difficultyRating": {
+            "minimum": 1,
+            "maximum": 100,
+            "default": 80,
+            "type": "number"
+          },
+          "contactDamage": {
+            "minimum": 0,
+            "maximum": 10000,
+            "default": 0,
+            "type": "number"
+          },
+          "xpReward": {
+            "minimum": 0,
+            "maximum": 10000,
+            "default": 100,
+            "type": "integer"
+          },
+          "rewards": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "dropRuleId",
+              "lootTableId"
+            ],
+            "properties": {
+              "dropRuleId": {
+                "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                "type": "string",
+                "x-collection": "dropRules"
+              },
+              "lootTableId": {
+                "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                "type": "string",
+                "x-collection": "lootTables"
+              }
+            }
+          },
+          "phases": {
+            "minItems": 1,
+            "maxItems": 12,
+            "type": "array",
+            "items": {
+              "additionalProperties": false,
+              "type": "object",
+              "required": [
+                "id",
+                "minHealthRatio",
+                "behaviorId",
+                "attackPatternIds"
+              ],
+              "properties": {
+                "id": {
+                  "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                  "type": "string"
+                },
+                "minHealthRatio": {
+                  "minimum": 0,
+                  "maximum": 1,
+                  "default": 0,
+                  "type": "number"
+                },
+                "behaviorId": {
+                  "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                  "type": "string",
+                  "x-collection": "behaviors"
+                },
+                "attackPatternIds": {
+                  "minItems": 1,
+                  "maxItems": 16,
+                  "type": "array",
+                  "items": {
+                    "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                    "type": "string",
+                    "x-collection": "attackPatterns"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

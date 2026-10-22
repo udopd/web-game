@@ -1,0 +1,1 @@
+{"schemaVersion":"1.0.0","id":"ext.chain_lightning","version":"1.0.0","subscribedEvents":["entity.killed"],"parameterSchema":"params.schema.json","editorSchema":"editor.schema.json","handlerEntry":"handler.ts","limits":{"maxCommandsPerTrigger":8,"maxTriggersPerTick":1}}

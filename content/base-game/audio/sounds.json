@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "shot",
+      "name": "shot",
+      "tags": [],
+      "source": "assets/audio/shot.wav",
+      "baseGain": 0.5,
+      "pitch": {
+        "min": 0.9,
+        "max": 1.1
+      },
+      "loop": false,
+      "spatial": {
+        "enabled": true,
+        "referenceDistance": 160,
+        "maxDistance": 900
+      },
+      "cooldownMs": 40,
+      "maxConcurrent": 8,
+      "priority": 80
+    }
+  ]
+}

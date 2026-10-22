@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "green_edge",
+      "name": "green_edge",
+      "tags": [],
+      "biomeId": "overgrowth",
+      "generationMode": "procedural",
+      "generationRuleId": "overgrowth_rooms",
+      "enemySpawnTableId": "frontier_enemies",
+      "decorationSpawnTableId": "frontier_props",
+      "chestSpawnTableId": "frontier_chests",
+      "difficultyBudget": 80
+    },
+    {
+      "id": "rootways",
+      "name": "rootways",
+      "tags": [],
+      "biomeId": "overgrowth",
+      "generationMode": "procedural",
+      "generationRuleId": "overgrowth_rooms",
+      "enemySpawnTableId": "frontier_enemies",
+      "decorationSpawnTableId": "frontier_props",
+      "chestSpawnTableId": "frontier_chests",
+      "difficultyBudget": 80
+    },
+    {
+      "id": "secret_cache",
+      "name": "secret_cache",
+      "tags": [],
+      "biomeId": "overgrowth",
+      "generationMode": "procedural",
+      "generationRuleId": "overgrowth_rooms",
+      "enemySpawnTableId": "frontier_enemies",
+      "decorationSpawnTableId": "frontier_props",
+      "chestSpawnTableId": "frontier_chests",
+      "difficultyBudget": 80
+    },
+    {
+      "id": "rust_gate",
+      "name": "rust_gate",
+      "tags": [],
+      "biomeId": "foundry",
+      "generationMode": "procedural",
+      "generationRuleId": "foundry_rooms",
+      "enemySpawnTableId": "frontier_enemies",
+      "decorationSpawnTableId": "frontier_props",
+      "chestSpawnTableId": "frontier_chests",
+      "difficultyBudget": 80
+    },
+    {
+      "id": "core_chamber",
+      "name": "core_chamber",
+      "tags": [],
+      "biomeId": "foundry",
+      "generationMode": "procedural",
+      "generationRuleId": "foundry_rooms",
+      "enemySpawnTableId": "frontier_enemies",
+      "decorationSpawnTableId": "frontier_props",
+      "chestSpawnTableId": "frontier_chests",
+      "difficultyBudget": 40,
+      "bossId": "furnace"
+    }
+  ]
+}

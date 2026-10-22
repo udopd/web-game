@@ -1,0 +1,92 @@
+{
+  "additionalProperties": false,
+  "$id": "https://emberfall.local/schema/music",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "items": {
+      "maxItems": 10000,
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tags",
+          "source",
+          "baseGain",
+          "loop",
+          "loopStartMs",
+          "loopEndMs",
+          "fadeInMs",
+          "fadeOutMs"
+        ],
+        "properties": {
+          "id": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "maxLength": 100,
+            "type": "string"
+          },
+          "tags": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "maxLength": 160,
+              "type": "string"
+            }
+          },
+          "source": {
+            "pattern": "^assets/[a-zA-Z0-9_./-]+\\.(wav|ogg|mp3)$",
+            "type": "string"
+          },
+          "baseGain": {
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0.6,
+            "type": "number"
+          },
+          "loop": {
+            "type": "boolean"
+          },
+          "loopStartMs": {
+            "minimum": 0,
+            "maximum": 100000,
+            "default": 0,
+            "type": "integer"
+          },
+          "loopEndMs": {
+            "minimum": 0,
+            "maximum": 3600000,
+            "default": 0,
+            "type": "integer"
+          },
+          "fadeInMs": {
+            "minimum": 0,
+            "maximum": 30000,
+            "default": 800,
+            "type": "integer"
+          },
+          "fadeOutMs": {
+            "minimum": 0,
+            "maximum": 30000,
+            "default": 1000,
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "additionalProperties": false,
+  "$id": "https://emberfall.local/schema/unlocks",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "items": {
+      "maxItems": 10000,
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tags",
+          "rewardCharacterId",
+          "mode",
+          "progressScope",
+          "participantRequirement",
+          "conditions",
+          "permanent"
+        ],
+        "properties": {
+          "id": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "maxLength": 100,
+            "type": "string"
+          },
+          "tags": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "maxLength": 160,
+              "type": "string"
+            }
+          },
+          "rewardCharacterId": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string",
+            "x-collection": "characters"
+          },
+          "mode": {
+            "anyOf": [
+              {
+                "const": "any",
+                "type": "string"
+              },
+              {
+                "const": "solo",
+                "type": "string"
+              },
+              {
+                "const": "coop",
+                "type": "string"
+              }
+            ]
+          },
+          "progressScope": {
+            "anyOf": [
+              {
+                "const": "account",
+                "type": "string"
+              },
+              {
+                "const": "single_run",
+                "type": "string"
+              }
+            ]
+          },
+          "participantRequirement": {
+            "anyOf": [
+              {
+                "const": "participated",
+                "type": "string"
+              },
+              {
+                "const": "alive",
+                "type": "string"
+              }
+            ]
+          },
+          "conditions": {
+            "anyOf": [
+              {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "levelId"
+                    ],
+                    "properties": {
+                      "type": {
+                        "const": "level_completed",
+                        "type": "string"
+                      },
+                      "levelId": {
+                        "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                        "type": "string",
+                        "x-collection": "levels"
+                      }
+                    }
+                  },
+                  {
+                    "additionalProperties": false,
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "biomeId"
+                    ],
+                    "properties": {
+                      "type": {
+                        "const": "biome_completed",
+                        "type": "string"
+                      },
+                      "biomeId": {
+                        "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                        "type": "string",
+                        "x-collection": "biomes"
+                      }
+                    }
+                  },
+                  {
+                    "additionalProperties": false,
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "bossId"
+                    ],
+                    "properties": {
+                      "type": {
+                        "const": "boss_defeated",
+                        "type": "string"
+                      },
+                      "bossId": {
+                        "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                        "type": "string",
+                        "x-collection": "bosses"
+                      }
+                    }
+                  },
+                  {
+                    "additionalProperties": false,
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "levelNumber"
+                    ],
+                    "properties": {
+                      "type": {
+                        "const": "max_level_reached",
+                        "type": "string"
+                      },
+                      "levelNumber": {
+                        "minimum": 1,
+                        "maximum": 10000,
+                        "default": 0,
+                        "type": "integer"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "additionalProperties": false,
+                "type": "object",
+                "required": [
+                  "type",
+                  "children"
+                ],
+                "properties": {
+                  "type": {
+                    "anyOf": [
+                      {
+                        "const": "all_of",
+                        "type": "string"
+                      },
+                      {
+                        "const": "any_of",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "children": {
+                    "maxItems": 32,
+                    "type": "array",
+                    "items": {
+                      "anyOf": [
+                        {
+                          "additionalProperties": false,
+                          "type": "object",
+                          "required": [
+                            "type",
+                            "levelId"
+                          ],
+                          "properties": {
+                            "type": {
+                              "const": "level_completed",
+                              "type": "string"
+                            },
+                            "levelId": {
+                              "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                              "type": "string",
+                              "x-collection": "levels"
+                            }
+                          }
+                        },
+                        {
+                          "additionalProperties": false,
+                          "type": "object",
+                          "required": [
+                            "type",
+                            "biomeId"
+                          ],
+                          "properties": {
+                            "type": {
+                              "const": "biome_completed",
+                              "type": "string"
+                            },
+                            "biomeId": {
+                              "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                              "type": "string",
+                              "x-collection": "biomes"
+                            }
+                          }
+                        },
+                        {
+                          "additionalProperties": false,
+                          "type": "object",
+                          "required": [
+                            "type",
+                            "bossId"
+                          ],
+                          "properties": {
+                            "type": {
+                              "const": "boss_defeated",
+                              "type": "string"
+                            },
+                            "bossId": {
+                              "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                              "type": "string",
+                              "x-collection": "bosses"
+                            }
+                          }
+                        },
+                        {
+                          "additionalProperties": false,
+                          "type": "object",
+                          "required": [
+                            "type",
+                            "levelNumber"
+                          ],
+                          "properties": {
+                            "type": {
+                              "const": "max_level_reached",
+                              "type": "string"
+                            },
+                            "levelNumber": {
+                              "minimum": 1,
+                              "maximum": 10000,
+                              "default": 0,
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "permanent": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

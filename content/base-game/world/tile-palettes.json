@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "overgrowth_tiles",
+      "name": "overgrowth_tiles",
+      "tags": [],
+      "tileSize": 16,
+      "tiles": [
+        {
+          "id": "overgrowth_floor",
+          "spriteId": "tile_0",
+          "walkable": true,
+          "projectileBlocking": false,
+          "variants": [
+            {
+              "spriteId": "tile_0",
+              "weight": 1
+            },
+            {
+              "spriteId": "tile_1",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": "overgrowth_wall",
+          "spriteId": "tile_4",
+          "walkable": false,
+          "projectileBlocking": true,
+          "variants": []
+        }
+      ]
+    },
+    {
+      "id": "foundry_tiles",
+      "name": "foundry_tiles",
+      "tags": [],
+      "tileSize": 16,
+      "tiles": [
+        {
+          "id": "foundry_floor",
+          "spriteId": "tile_8",
+          "walkable": true,
+          "projectileBlocking": false,
+          "variants": [
+            {
+              "spriteId": "tile_8",
+              "weight": 1
+            },
+            {
+              "spriteId": "tile_9",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": "foundry_wall",
+          "spriteId": "tile_12",
+          "walkable": false,
+          "projectileBlocking": true,
+          "variants": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "frontier_props",
+      "name": "frontier_props",
+      "tags": [],
+      "kind": "prop",
+      "entries": [
+        {
+          "definitionId": "supply_crate",
+          "weight": 1,
+          "probability": 1
+        }
+      ],
+      "min": 3,
+      "max": 7,
+      "chance": 1,
+      "attempts": 200,
+      "minDistance": 48
+    }
+  ]
+}

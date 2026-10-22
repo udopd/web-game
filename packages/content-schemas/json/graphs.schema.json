@@ -1,0 +1,540 @@
+{
+  "additionalProperties": false,
+  "$id": "https://emberfall.local/schema/graphs",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "items": {
+      "maxItems": 10000,
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tags",
+          "event",
+          "nodes",
+          "edges"
+        ],
+        "properties": {
+          "id": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "maxLength": 100,
+            "type": "string"
+          },
+          "tags": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "maxLength": 160,
+              "type": "string"
+            }
+          },
+          "event": {
+            "anyOf": [
+              {
+                "const": "run.started",
+                "type": "string"
+              },
+              {
+                "const": "run.completed",
+                "type": "string"
+              },
+              {
+                "const": "level.started",
+                "type": "string"
+              },
+              {
+                "const": "level.completed",
+                "type": "string"
+              },
+              {
+                "const": "biome.completed",
+                "type": "string"
+              },
+              {
+                "const": "weapon.fired",
+                "type": "string"
+              },
+              {
+                "const": "weapon.reloaded",
+                "type": "string"
+              },
+              {
+                "const": "projectile.spawned",
+                "type": "string"
+              },
+              {
+                "const": "projectile.hit",
+                "type": "string"
+              },
+              {
+                "const": "beam.hit",
+                "type": "string"
+              },
+              {
+                "const": "melee.hit",
+                "type": "string"
+              },
+              {
+                "const": "entity.damaged",
+                "type": "string"
+              },
+              {
+                "const": "entity.killed",
+                "type": "string"
+              },
+              {
+                "const": "entity.healed",
+                "type": "string"
+              },
+              {
+                "const": "enemy.killed",
+                "type": "string"
+              },
+              {
+                "const": "boss.killed",
+                "type": "string"
+              },
+              {
+                "const": "enemy.attack_windup_started",
+                "type": "string"
+              },
+              {
+                "const": "enemy.attack_executed",
+                "type": "string"
+              },
+              {
+                "const": "enemy.attack_cancelled",
+                "type": "string"
+              },
+              {
+                "const": "boss.phase_changed",
+                "type": "string"
+              },
+              {
+                "const": "boss.attack_windup_started",
+                "type": "string"
+              },
+              {
+                "const": "boss.attack_executed",
+                "type": "string"
+              },
+              {
+                "const": "boss.attack_cancelled",
+                "type": "string"
+              },
+              {
+                "const": "chest.open_started",
+                "type": "string"
+              },
+              {
+                "const": "chest.opened",
+                "type": "string"
+              },
+              {
+                "const": "prop.destroyed",
+                "type": "string"
+              },
+              {
+                "const": "loot.spawned",
+                "type": "string"
+              },
+              {
+                "const": "loot.picked_up",
+                "type": "string"
+              },
+              {
+                "const": "mutation.activated",
+                "type": "string"
+              },
+              {
+                "const": "status.applied",
+                "type": "string"
+              },
+              {
+                "const": "player.death",
+                "type": "string"
+              },
+              {
+                "const": "player.victory",
+                "type": "string"
+              },
+              {
+                "const": "character.unlocked",
+                "type": "string"
+              },
+              {
+                "const": "tick.elapsed",
+                "type": "string"
+              },
+              {
+                "const": "animation.event",
+                "type": "string"
+              },
+              {
+                "const": "ui.clicked",
+                "type": "string"
+              }
+            ]
+          },
+          "nodes": {
+            "minItems": 1,
+            "maxItems": 128,
+            "type": "array",
+            "items": {
+              "additionalProperties": false,
+              "type": "object",
+              "required": [
+                "id",
+                "type"
+              ],
+              "properties": {
+                "id": {
+                  "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                  "type": "string"
+                },
+                "type": {
+                  "anyOf": [
+                    {
+                      "const": "event",
+                      "type": "string"
+                    },
+                    {
+                      "const": "condition",
+                      "type": "string"
+                    },
+                    {
+                      "const": "chance",
+                      "type": "string"
+                    },
+                    {
+                      "const": "cooldown",
+                      "type": "string"
+                    },
+                    {
+                      "const": "delay",
+                      "type": "string"
+                    },
+                    {
+                      "const": "action",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "condition": {
+                  "additionalProperties": false,
+                  "type": "object",
+                  "required": [
+                    "field",
+                    "operator",
+                    "value"
+                  ],
+                  "properties": {
+                    "field": {
+                      "maxLength": 160,
+                      "type": "string"
+                    },
+                    "operator": {
+                      "anyOf": [
+                        {
+                          "const": "eq",
+                          "type": "string"
+                        },
+                        {
+                          "const": "neq",
+                          "type": "string"
+                        },
+                        {
+                          "const": "gte",
+                          "type": "string"
+                        },
+                        {
+                          "const": "lte",
+                          "type": "string"
+                        },
+                        {
+                          "const": "in",
+                          "type": "string"
+                        },
+                        {
+                          "const": "has_tag",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "value": {
+                      "anyOf": [
+                        {
+                          "maxLength": 160,
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "maxItems": 32,
+                          "type": "array",
+                          "items": {
+                            "maxLength": 160,
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "probability": {
+                  "minimum": 0,
+                  "maximum": 1,
+                  "default": 0,
+                  "type": "number"
+                },
+                "ticks": {
+                  "minimum": 0,
+                  "maximum": 3600,
+                  "default": 0,
+                  "type": "integer"
+                },
+                "action": {
+                  "anyOf": [
+                    {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "amount"
+                      ],
+                      "properties": {
+                        "type": {
+                          "const": "heal",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "minimum": 0,
+                          "maximum": 1000,
+                          "default": 0,
+                          "type": "number"
+                        }
+                      }
+                    },
+                    {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "amount",
+                        "radius",
+                        "damageTypeId"
+                      ],
+                      "properties": {
+                        "type": {
+                          "const": "damage",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "minimum": 0,
+                          "maximum": 1000,
+                          "default": 0,
+                          "type": "number"
+                        },
+                        "radius": {
+                          "minimum": 0,
+                          "maximum": 1000,
+                          "default": 0,
+                          "type": "number"
+                        },
+                        "damageTypeId": {
+                          "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                          "type": "string",
+                          "x-collection": "damageTypes"
+                        }
+                      }
+                    },
+                    {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "stat",
+                        "operation",
+                        "value"
+                      ],
+                      "properties": {
+                        "type": {
+                          "const": "modify_stat",
+                          "type": "string"
+                        },
+                        "stat": {
+                          "anyOf": [
+                            {
+                              "const": "maxHealth",
+                              "type": "string"
+                            },
+                            {
+                              "const": "moveSpeed",
+                              "type": "string"
+                            },
+                            {
+                              "const": "damageMultiplier",
+                              "type": "string"
+                            },
+                            {
+                              "const": "fireRateMultiplier",
+                              "type": "string"
+                            },
+                            {
+                              "const": "armor",
+                              "type": "string"
+                            },
+                            {
+                              "const": "critChance",
+                              "type": "string"
+                            },
+                            {
+                              "const": "pickupRadius",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "operation": {
+                          "anyOf": [
+                            {
+                              "const": "add",
+                              "type": "string"
+                            },
+                            {
+                              "const": "multiply",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "value": {
+                          "minimum": -100,
+                          "maximum": 100,
+                          "default": 0,
+                          "type": "number"
+                        }
+                      }
+                    },
+                    {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "statusId",
+                        "durationTicks"
+                      ],
+                      "properties": {
+                        "type": {
+                          "const": "apply_status",
+                          "type": "string"
+                        },
+                        "statusId": {
+                          "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                          "type": "string",
+                          "x-collection": "statuses"
+                        },
+                        "durationTicks": {
+                          "minimum": 1,
+                          "maximum": 3600,
+                          "default": 0,
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "projectileId",
+                        "count"
+                      ],
+                      "properties": {
+                        "type": {
+                          "const": "spawn_projectile",
+                          "type": "string"
+                        },
+                        "projectileId": {
+                          "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                          "type": "string",
+                          "x-collection": "projectiles"
+                        },
+                        "count": {
+                          "minimum": 1,
+                          "maximum": 32,
+                          "default": 0,
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "amount"
+                      ],
+                      "properties": {
+                        "type": {
+                          "const": "grant_ammo",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "minimum": 1,
+                          "maximum": 1000,
+                          "default": 0,
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "edges": {
+            "maxItems": 256,
+            "type": "array",
+            "items": {
+              "additionalProperties": false,
+              "type": "object",
+              "required": [
+                "from",
+                "to"
+              ],
+              "properties": {
+                "from": {
+                  "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                  "type": "string"
+                },
+                "to": {
+                  "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

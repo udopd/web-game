@@ -1,0 +1,248 @@
+{
+  "additionalProperties": false,
+  "$id": "https://emberfall.local/schema/tilemaps",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "items": {
+      "maxItems": 10000,
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tags",
+          "paletteId",
+          "width",
+          "height",
+          "layers",
+          "placements",
+          "spawnZones"
+        ],
+        "properties": {
+          "id": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "maxLength": 100,
+            "type": "string"
+          },
+          "tags": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "maxLength": 160,
+              "type": "string"
+            }
+          },
+          "paletteId": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string",
+            "x-collection": "tilePalettes"
+          },
+          "width": {
+            "minimum": 5,
+            "maximum": 128,
+            "default": 40,
+            "type": "integer"
+          },
+          "height": {
+            "minimum": 5,
+            "maximum": 128,
+            "default": 28,
+            "type": "integer"
+          },
+          "layers": {
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "additionalProperties": false,
+              "type": "object",
+              "required": [
+                "id",
+                "cells"
+              ],
+              "properties": {
+                "id": {
+                  "anyOf": [
+                    {
+                      "const": "floor",
+                      "type": "string"
+                    },
+                    {
+                      "const": "floor_details",
+                      "type": "string"
+                    },
+                    {
+                      "const": "wall_base",
+                      "type": "string"
+                    },
+                    {
+                      "const": "wall_top",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "cells": {
+                  "maxItems": 128,
+                  "type": "array",
+                  "items": {
+                    "maxItems": 128,
+                    "type": "array",
+                    "items": {
+                      "anyOf": [
+                        {
+                          "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "placements": {
+            "maxItems": 500,
+            "type": "array",
+            "items": {
+              "additionalProperties": false,
+              "type": "object",
+              "required": [
+                "placementId",
+                "kind",
+                "position"
+              ],
+              "properties": {
+                "placementId": {
+                  "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                  "type": "string"
+                },
+                "kind": {
+                  "anyOf": [
+                    {
+                      "const": "enemy",
+                      "type": "string"
+                    },
+                    {
+                      "const": "boss",
+                      "type": "string"
+                    },
+                    {
+                      "const": "prop",
+                      "type": "string"
+                    },
+                    {
+                      "const": "chest",
+                      "type": "string"
+                    },
+                    {
+                      "const": "player_spawn",
+                      "type": "string"
+                    },
+                    {
+                      "const": "level_exit",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "definitionId": {
+                  "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                  "type": "string"
+                },
+                "position": {
+                  "additionalProperties": false,
+                  "type": "object",
+                  "required": [
+                    "x",
+                    "y"
+                  ],
+                  "properties": {
+                    "x": {
+                      "minimum": -100000,
+                      "maximum": 100000,
+                      "default": 0,
+                      "type": "number"
+                    },
+                    "y": {
+                      "minimum": -100000,
+                      "maximum": 100000,
+                      "default": 0,
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "spawnZones": {
+            "maxItems": 64,
+            "type": "array",
+            "items": {
+              "additionalProperties": false,
+              "type": "object",
+              "required": [
+                "id",
+                "x",
+                "y",
+                "width",
+                "height",
+                "tableId"
+              ],
+              "properties": {
+                "id": {
+                  "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                  "type": "string"
+                },
+                "x": {
+                  "minimum": 0,
+                  "maximum": 100000,
+                  "default": 0,
+                  "type": "integer"
+                },
+                "y": {
+                  "minimum": 0,
+                  "maximum": 100000,
+                  "default": 0,
+                  "type": "integer"
+                },
+                "width": {
+                  "minimum": 1,
+                  "maximum": 128,
+                  "default": 0,
+                  "type": "integer"
+                },
+                "height": {
+                  "minimum": 1,
+                  "maximum": 128,
+                  "default": 0,
+                  "type": "integer"
+                },
+                "tableId": {
+                  "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

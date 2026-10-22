@@ -1,0 +1,407 @@
+{
+  "additionalProperties": false,
+  "$id": "https://emberfall.local/schema/eventBindings",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "items": {
+      "maxItems": 10000,
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tags",
+          "event",
+          "conditions",
+          "actions",
+          "cooldownMs",
+          "probability",
+          "enabled"
+        ],
+        "properties": {
+          "id": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "maxLength": 100,
+            "type": "string"
+          },
+          "tags": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "maxLength": 160,
+              "type": "string"
+            }
+          },
+          "event": {
+            "anyOf": [
+              {
+                "const": "run.started",
+                "type": "string"
+              },
+              {
+                "const": "run.completed",
+                "type": "string"
+              },
+              {
+                "const": "level.started",
+                "type": "string"
+              },
+              {
+                "const": "level.completed",
+                "type": "string"
+              },
+              {
+                "const": "biome.completed",
+                "type": "string"
+              },
+              {
+                "const": "weapon.fired",
+                "type": "string"
+              },
+              {
+                "const": "weapon.reloaded",
+                "type": "string"
+              },
+              {
+                "const": "projectile.spawned",
+                "type": "string"
+              },
+              {
+                "const": "projectile.hit",
+                "type": "string"
+              },
+              {
+                "const": "beam.hit",
+                "type": "string"
+              },
+              {
+                "const": "melee.hit",
+                "type": "string"
+              },
+              {
+                "const": "entity.damaged",
+                "type": "string"
+              },
+              {
+                "const": "entity.killed",
+                "type": "string"
+              },
+              {
+                "const": "entity.healed",
+                "type": "string"
+              },
+              {
+                "const": "enemy.killed",
+                "type": "string"
+              },
+              {
+                "const": "boss.killed",
+                "type": "string"
+              },
+              {
+                "const": "enemy.attack_windup_started",
+                "type": "string"
+              },
+              {
+                "const": "enemy.attack_executed",
+                "type": "string"
+              },
+              {
+                "const": "enemy.attack_cancelled",
+                "type": "string"
+              },
+              {
+                "const": "boss.phase_changed",
+                "type": "string"
+              },
+              {
+                "const": "boss.attack_windup_started",
+                "type": "string"
+              },
+              {
+                "const": "boss.attack_executed",
+                "type": "string"
+              },
+              {
+                "const": "boss.attack_cancelled",
+                "type": "string"
+              },
+              {
+                "const": "chest.open_started",
+                "type": "string"
+              },
+              {
+                "const": "chest.opened",
+                "type": "string"
+              },
+              {
+                "const": "prop.destroyed",
+                "type": "string"
+              },
+              {
+                "const": "loot.spawned",
+                "type": "string"
+              },
+              {
+                "const": "loot.picked_up",
+                "type": "string"
+              },
+              {
+                "const": "mutation.activated",
+                "type": "string"
+              },
+              {
+                "const": "status.applied",
+                "type": "string"
+              },
+              {
+                "const": "player.death",
+                "type": "string"
+              },
+              {
+                "const": "player.victory",
+                "type": "string"
+              },
+              {
+                "const": "character.unlocked",
+                "type": "string"
+              },
+              {
+                "const": "tick.elapsed",
+                "type": "string"
+              },
+              {
+                "const": "animation.event",
+                "type": "string"
+              },
+              {
+                "const": "ui.clicked",
+                "type": "string"
+              }
+            ]
+          },
+          "conditions": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "additionalProperties": false,
+              "type": "object",
+              "required": [
+                "field",
+                "operator",
+                "value"
+              ],
+              "properties": {
+                "field": {
+                  "maxLength": 160,
+                  "type": "string"
+                },
+                "operator": {
+                  "anyOf": [
+                    {
+                      "const": "eq",
+                      "type": "string"
+                    },
+                    {
+                      "const": "neq",
+                      "type": "string"
+                    },
+                    {
+                      "const": "gte",
+                      "type": "string"
+                    },
+                    {
+                      "const": "lte",
+                      "type": "string"
+                    },
+                    {
+                      "const": "in",
+                      "type": "string"
+                    },
+                    {
+                      "const": "has_tag",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "value": {
+                  "anyOf": [
+                    {
+                      "maxLength": 160,
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "maxItems": 32,
+                      "type": "array",
+                      "items": {
+                        "maxLength": 160,
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "actions": {
+            "minItems": 1,
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "additionalProperties": false,
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "soundId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "const": "play_sfx",
+                      "type": "string"
+                    },
+                    "soundId": {
+                      "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                      "type": "string",
+                      "x-collection": "sounds"
+                    }
+                  }
+                },
+                {
+                  "additionalProperties": false,
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "particleEffectId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "const": "spawn_particles",
+                      "type": "string"
+                    },
+                    "particleEffectId": {
+                      "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                      "type": "string",
+                      "x-collection": "particles"
+                    }
+                  }
+                },
+                {
+                  "additionalProperties": false,
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "cameraEffectId",
+                    "scope"
+                  ],
+                  "properties": {
+                    "type": {
+                      "const": "camera_effect",
+                      "type": "string"
+                    },
+                    "cameraEffectId": {
+                      "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                      "type": "string",
+                      "x-collection": "cameraEffects"
+                    },
+                    "scope": {
+                      "anyOf": [
+                        {
+                          "const": "local_actor",
+                          "type": "string"
+                        },
+                        {
+                          "const": "nearby_players",
+                          "type": "string"
+                        },
+                        {
+                          "const": "all_room",
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "additionalProperties": false,
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "musicId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "const": "switch_music",
+                      "type": "string"
+                    },
+                    "musicId": {
+                      "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                      "type": "string",
+                      "x-collection": "music"
+                    }
+                  }
+                },
+                {
+                  "additionalProperties": false,
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "animationId"
+                  ],
+                  "properties": {
+                    "type": {
+                      "const": "play_animation",
+                      "type": "string"
+                    },
+                    "animationId": {
+                      "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                      "type": "string",
+                      "x-collection": "animations"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "cooldownMs": {
+            "minimum": 0,
+            "maximum": 60000,
+            "default": 0,
+            "type": "integer"
+          },
+          "probability": {
+            "minimum": 0,
+            "maximum": 1,
+            "default": 1,
+            "type": "number"
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "field_supplies",
+      "name": "field_supplies",
+      "tags": [],
+      "entries": [
+        {
+          "rewardType": "pickup",
+          "rewardId": "health",
+          "weight": 35,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "rewardType": "pickup",
+          "rewardId": "ammo_pickup",
+          "weight": 65,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "id": "arsenal",
+      "name": "arsenal",
+      "tags": [],
+      "entries": [
+        {
+          "rewardType": "weapon",
+          "rewardId": "revolver",
+          "weight": 1,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "rewardType": "weapon",
+          "rewardId": "shotgun",
+          "weight": 1,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "rewardType": "weapon",
+          "rewardId": "crossbow",
+          "weight": 1,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "rewardType": "weapon",
+          "rewardId": "laser",
+          "weight": 1,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "rewardType": "weapon",
+          "rewardId": "blade",
+          "weight": 1,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    }
+  ]
+}

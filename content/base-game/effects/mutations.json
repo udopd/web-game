@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "vigor",
+      "name": "Second Breath",
+      "tags": [],
+      "description": "Recover 4 health after a kill.",
+      "iconSpriteId": "crystal",
+      "maxStacks": 2,
+      "weight": 1,
+      "effectIds": [
+        "vigor_effect"
+      ]
+    },
+    {
+      "id": "stride",
+      "name": "Ghost Step",
+      "tags": [],
+      "description": "Move 20% faster.",
+      "iconSpriteId": "crystal",
+      "maxStacks": 2,
+      "weight": 1,
+      "effectIds": [
+        "stride_effect"
+      ]
+    },
+    {
+      "id": "chain",
+      "name": "Arc Bloom",
+      "tags": [],
+      "description": "Kills chain electricity to nearby enemies.",
+      "iconSpriteId": "crystal",
+      "maxStacks": 2,
+      "weight": 1,
+      "effectIds": [
+        "chain_effect"
+      ]
+    },
+    {
+      "id": "lucky",
+      "name": "Lucky Clover",
+      "tags": [],
+      "description": "Half of your kills heal 8 HP.",
+      "iconSpriteId": "crystal",
+      "maxStacks": 1,
+      "weight": 1,
+      "effectIds": [
+        "lucky_effect"
+      ]
+    }
+  ]
+}

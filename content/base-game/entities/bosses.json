@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "furnace",
+      "name": "The Last Furnace",
+      "tags": [],
+      "spriteId": "reactor",
+      "animationSet": {
+        "idle": "reactor_idle",
+        "death": "reactor_death"
+      },
+      "collision": {
+        "shape": "circle",
+        "radius": 20
+      },
+      "stats": {
+        "maxHealth": 650,
+        "moveSpeed": 40,
+        "armor": 0,
+        "damageMultiplier": 1,
+        "fireRateMultiplier": 1,
+        "critChance": 0.05,
+        "pickupRadius": 24
+      },
+      "difficultyRating": 85,
+      "contactDamage": 16,
+      "xpReward": 100,
+      "rewards": {
+        "dropRuleId": "guaranteed",
+        "lootTableId": "arsenal"
+      },
+      "phases": [
+        {
+          "id": "embers",
+          "minHealthRatio": 0.5,
+          "behaviorId": "spitter",
+          "attackPatternIds": [
+            "radial"
+          ]
+        },
+        {
+          "id": "overload",
+          "minHealthRatio": 0,
+          "behaviorId": "orbit",
+          "attackPatternIds": [
+            "radial",
+            "reinforcements"
+          ]
+        }
+      ]
+    }
+  ]
+}

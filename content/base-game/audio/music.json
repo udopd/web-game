@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "frontier",
+      "name": "frontier",
+      "tags": [],
+      "source": "assets/audio/frontier.wav",
+      "baseGain": 0.3,
+      "loop": true,
+      "loopStartMs": 0,
+      "loopEndMs": 8000,
+      "fadeInMs": 600,
+      "fadeOutMs": 800
+    }
+  ]
+}

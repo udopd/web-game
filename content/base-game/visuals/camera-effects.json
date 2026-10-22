@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "impact",
+      "name": "impact",
+      "tags": [],
+      "durationMs": 90,
+      "amplitudePx": 3,
+      "frequencyHz": 24,
+      "falloff": "easeOut",
+      "stacking": "max",
+      "maxDistance": 600
+    }
+  ]
+}

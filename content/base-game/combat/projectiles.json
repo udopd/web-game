@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "bullet",
+      "name": "bullet",
+      "tags": [],
+      "spriteId": "spark",
+      "speed": 420,
+      "acceleration": 0,
+      "radius": 3,
+      "damage": 14,
+      "damageTypeId": "physical",
+      "lifetimeTicks": 90,
+      "pierce": 0,
+      "ricochets": 0,
+      "explosionRadius": 0,
+      "gravity": {
+        "x": 0,
+        "y": 0
+      },
+      "drag": 0,
+      "homing": 0
+    },
+    {
+      "id": "pellet",
+      "name": "pellet",
+      "tags": [],
+      "spriteId": "spark",
+      "speed": 340,
+      "acceleration": 0,
+      "radius": 3,
+      "damage": 7,
+      "damageTypeId": "physical",
+      "lifetimeTicks": 90,
+      "pierce": 0,
+      "ricochets": 0,
+      "explosionRadius": 0,
+      "gravity": {
+        "x": 0,
+        "y": 0
+      },
+      "drag": 0,
+      "homing": 0
+    },
+    {
+      "id": "bolt",
+      "name": "bolt",
+      "tags": [],
+      "spriteId": "spark",
+      "speed": 550,
+      "acceleration": 0,
+      "radius": 3,
+      "damage": 28,
+      "damageTypeId": "physical",
+      "lifetimeTicks": 90,
+      "pierce": 2,
+      "ricochets": 0,
+      "explosionRadius": 0,
+      "gravity": {
+        "x": 0,
+        "y": 0
+      },
+      "drag": 0,
+      "homing": 0
+    },
+    {
+      "id": "enemy_bullet",
+      "name": "enemy_bullet",
+      "tags": [],
+      "spriteId": "spark",
+      "speed": 160,
+      "acceleration": 0,
+      "radius": 3,
+      "damage": 9,
+      "damageTypeId": "physical",
+      "lifetimeTicks": 90,
+      "pierce": 0,
+      "ricochets": 0,
+      "explosionRadius": 0,
+      "gravity": {
+        "x": 0,
+        "y": 0
+      },
+      "drag": 0,
+      "homing": 0
+    }
+  ]
+}

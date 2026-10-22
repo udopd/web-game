@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "beam",
+      "name": "beam",
+      "tags": [],
+      "range": 260,
+      "width": 5,
+      "damage": 12,
+      "damageTypeId": "energy",
+      "pierce": 2,
+      "color": "#a581d2",
+      "durationTicks": 3
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "bite",
+      "name": "bite",
+      "tags": [],
+      "weaponId": "blade",
+      "windupTicks": 14,
+      "recoveryTicks": 35,
+      "shots": 1,
+      "spreadDeg": 0,
+      "aim": "target",
+      "summonCount": 0
+    },
+    {
+      "id": "spit",
+      "name": "spit",
+      "tags": [],
+      "weaponId": "enemy_spitter",
+      "windupTicks": 18,
+      "recoveryTicks": 40,
+      "shots": 1,
+      "spreadDeg": 0,
+      "aim": "target",
+      "summonCount": 0
+    },
+    {
+      "id": "radial",
+      "name": "radial",
+      "tags": [],
+      "weaponId": "enemy_spitter",
+      "windupTicks": 28,
+      "recoveryTicks": 50,
+      "shots": 10,
+      "spreadDeg": 360,
+      "aim": "radial",
+      "summonCount": 0
+    },
+    {
+      "id": "reinforcements",
+      "name": "reinforcements",
+      "tags": [],
+      "weaponId": "enemy_spitter",
+      "windupTicks": 25,
+      "recoveryTicks": 90,
+      "shots": 3,
+      "spreadDeg": 15,
+      "aim": "target",
+      "summonEnemyId": "beetle_enemy",
+      "summonCount": 2
+    }
+  ]
+}

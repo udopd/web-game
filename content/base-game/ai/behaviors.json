@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "hunter",
+      "name": "hunter",
+      "tags": [],
+      "mode": "chase",
+      "detectionRange": 600,
+      "preferredRange": 24,
+      "strafe": 0,
+      "navigation": true
+    },
+    {
+      "id": "spitter",
+      "name": "spitter",
+      "tags": [],
+      "mode": "ranged",
+      "detectionRange": 600,
+      "preferredRange": 140,
+      "strafe": 0,
+      "navigation": true
+    },
+    {
+      "id": "orbit",
+      "name": "orbit",
+      "tags": [],
+      "mode": "orbit",
+      "detectionRange": 600,
+      "preferredRange": 120,
+      "strafe": 0.5,
+      "navigation": true
+    }
+  ]
+}

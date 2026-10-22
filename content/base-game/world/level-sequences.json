@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "emberfall",
+      "name": "Emberfall: The Last Furnace",
+      "tags": [],
+      "startNodeId": "edge",
+      "endless": false,
+      "maxRepeats": 0,
+      "nodes": [
+        {
+          "nodeId": "edge",
+          "kind": "level",
+          "levelId": "green_edge",
+          "unlockRuleIds": [],
+          "difficultyScale": 1
+        },
+        {
+          "nodeId": "roots",
+          "kind": "level",
+          "levelId": "rootways",
+          "unlockRuleIds": [],
+          "difficultyScale": 1
+        },
+        {
+          "nodeId": "secret",
+          "kind": "level",
+          "levelId": "secret_cache",
+          "unlockRuleIds": [],
+          "difficultyScale": 1
+        },
+        {
+          "nodeId": "gate",
+          "kind": "level",
+          "levelId": "rust_gate",
+          "unlockRuleIds": [],
+          "difficultyScale": 1
+        },
+        {
+          "nodeId": "core",
+          "kind": "boss",
+          "levelId": "core_chamber",
+          "unlockRuleIds": [],
+          "difficultyScale": 1
+        },
+        {
+          "nodeId": "end",
+          "kind": "end",
+          "unlockRuleIds": [],
+          "difficultyScale": 1
+        }
+      ],
+      "edges": [
+        {
+          "edgeId": "a",
+          "fromNodeId": "edge",
+          "toNodeId": "roots",
+          "selection": "always",
+          "weight": 1
+        },
+        {
+          "edgeId": "b",
+          "fromNodeId": "roots",
+          "toNodeId": "gate",
+          "selection": "weighted_random",
+          "weight": 1
+        },
+        {
+          "edgeId": "c",
+          "fromNodeId": "roots",
+          "toNodeId": "secret",
+          "selection": "weighted_random",
+          "weight": 1
+        },
+        {
+          "edgeId": "d",
+          "fromNodeId": "secret",
+          "toNodeId": "gate",
+          "selection": "always",
+          "weight": 1
+        },
+        {
+          "edgeId": "e",
+          "fromNodeId": "gate",
+          "toNodeId": "core",
+          "selection": "always",
+          "weight": 1
+        },
+        {
+          "edgeId": "f",
+          "fromNodeId": "core",
+          "toNodeId": "end",
+          "selection": "always",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

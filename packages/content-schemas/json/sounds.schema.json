@@ -1,0 +1,135 @@
+{
+  "additionalProperties": false,
+  "$id": "https://emberfall.local/schema/sounds",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "items": {
+      "maxItems": 10000,
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tags",
+          "source",
+          "baseGain",
+          "pitch",
+          "loop",
+          "spatial",
+          "cooldownMs",
+          "maxConcurrent",
+          "priority"
+        ],
+        "properties": {
+          "id": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "maxLength": 100,
+            "type": "string"
+          },
+          "tags": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "maxLength": 160,
+              "type": "string"
+            }
+          },
+          "source": {
+            "pattern": "^assets/[a-zA-Z0-9_./-]+\\.(wav|ogg|mp3)$",
+            "type": "string"
+          },
+          "baseGain": {
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0.8,
+            "type": "number"
+          },
+          "pitch": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "min",
+              "max"
+            ],
+            "properties": {
+              "min": {
+                "minimum": 0,
+                "maximum": 100000,
+                "default": 0,
+                "type": "number"
+              },
+              "max": {
+                "minimum": 0,
+                "maximum": 100000,
+                "default": 0,
+                "type": "number"
+              }
+            }
+          },
+          "loop": {
+            "type": "boolean"
+          },
+          "spatial": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "enabled",
+              "referenceDistance",
+              "maxDistance"
+            ],
+            "properties": {
+              "enabled": {
+                "type": "boolean"
+              },
+              "referenceDistance": {
+                "minimum": 1,
+                "maximum": 2000,
+                "default": 160,
+                "type": "number"
+              },
+              "maxDistance": {
+                "minimum": 1,
+                "maximum": 5000,
+                "default": 900,
+                "type": "number"
+              }
+            }
+          },
+          "cooldownMs": {
+            "minimum": 0,
+            "maximum": 10000,
+            "default": 40,
+            "type": "integer"
+          },
+          "maxConcurrent": {
+            "minimum": 1,
+            "maximum": 64,
+            "default": 8,
+            "type": "integer"
+          },
+          "priority": {
+            "minimum": 0,
+            "maximum": 100,
+            "default": 50,
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}

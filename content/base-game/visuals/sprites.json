@@ -1,0 +1,917 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "scout_0",
+      "name": "scout_0",
+      "tags": [],
+      "source": "assets/sprites/scout.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "width": 313,
+        "height": 313
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.10223642172523961,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "scout_1",
+      "name": "scout_1",
+      "tags": [],
+      "source": "assets/sprites/scout.png",
+      "frame": {
+        "x": 313,
+        "y": 0,
+        "width": 314,
+        "height": 313
+      },
+      "pivot": {
+        "x": 157,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.10191082802547771,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "scout_2",
+      "name": "scout_2",
+      "tags": [],
+      "source": "assets/sprites/scout.png",
+      "frame": {
+        "x": 627,
+        "y": 0,
+        "width": 313,
+        "height": 313
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.10223642172523961,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "scout_3",
+      "name": "scout_3",
+      "tags": [],
+      "source": "assets/sprites/scout.png",
+      "frame": {
+        "x": 940,
+        "y": 0,
+        "width": 314,
+        "height": 313
+      },
+      "pivot": {
+        "x": 157,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.10191082802547771,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "scout_4",
+      "name": "scout_4",
+      "tags": [],
+      "source": "assets/sprites/scout.png",
+      "frame": {
+        "x": 0,
+        "y": 313,
+        "width": 313,
+        "height": 314
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.10223642172523961,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "scout_5",
+      "name": "scout_5",
+      "tags": [],
+      "source": "assets/sprites/scout.png",
+      "frame": {
+        "x": 313,
+        "y": 313,
+        "width": 314,
+        "height": 314
+      },
+      "pivot": {
+        "x": 157,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.10191082802547771,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "scout_6",
+      "name": "scout_6",
+      "tags": [],
+      "source": "assets/sprites/scout.png",
+      "frame": {
+        "x": 627,
+        "y": 313,
+        "width": 313,
+        "height": 314
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.10223642172523961,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "scout_7",
+      "name": "scout_7",
+      "tags": [],
+      "source": "assets/sprites/scout.png",
+      "frame": {
+        "x": 940,
+        "y": 313,
+        "width": 314,
+        "height": 314
+      },
+      "pivot": {
+        "x": 157,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.10191082802547771,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "scout_8",
+      "name": "scout_8",
+      "tags": [],
+      "source": "assets/sprites/scout.png",
+      "frame": {
+        "x": 0,
+        "y": 627,
+        "width": 313,
+        "height": 313
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.10223642172523961,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "scout_9",
+      "name": "scout_9",
+      "tags": [],
+      "source": "assets/sprites/scout.png",
+      "frame": {
+        "x": 313,
+        "y": 627,
+        "width": 314,
+        "height": 313
+      },
+      "pivot": {
+        "x": 157,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.10191082802547771,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "scout_10",
+      "name": "scout_10",
+      "tags": [],
+      "source": "assets/sprites/scout.png",
+      "frame": {
+        "x": 627,
+        "y": 627,
+        "width": 313,
+        "height": 313
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.10223642172523961,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "scout_11",
+      "name": "scout_11",
+      "tags": [],
+      "source": "assets/sprites/scout.png",
+      "frame": {
+        "x": 940,
+        "y": 627,
+        "width": 314,
+        "height": 313
+      },
+      "pivot": {
+        "x": 157,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.10191082802547771,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "scout_12",
+      "name": "scout_12",
+      "tags": [],
+      "source": "assets/sprites/scout.png",
+      "frame": {
+        "x": 0,
+        "y": 940,
+        "width": 313,
+        "height": 314
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.10223642172523961,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "scout_13",
+      "name": "scout_13",
+      "tags": [],
+      "source": "assets/sprites/scout.png",
+      "frame": {
+        "x": 313,
+        "y": 940,
+        "width": 314,
+        "height": 314
+      },
+      "pivot": {
+        "x": 157,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.10191082802547771,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "scout_14",
+      "name": "scout_14",
+      "tags": [],
+      "source": "assets/sprites/scout.png",
+      "frame": {
+        "x": 627,
+        "y": 940,
+        "width": 313,
+        "height": 314
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.10223642172523961,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "scout_15",
+      "name": "scout_15",
+      "tags": [],
+      "source": "assets/sprites/scout.png",
+      "frame": {
+        "x": 940,
+        "y": 940,
+        "width": 314,
+        "height": 314
+      },
+      "pivot": {
+        "x": 157,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.10191082802547771,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "beetle",
+      "name": "beetle",
+      "tags": [],
+      "source": "assets/sprites/objects.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "width": 313,
+        "height": 313
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.10223642172523961,
+      "rotationOffsetDeg": 0,
+      "layer": "props"
+    },
+    {
+      "id": "spore",
+      "name": "spore",
+      "tags": [],
+      "source": "assets/sprites/objects.png",
+      "frame": {
+        "x": 313,
+        "y": 0,
+        "width": 314,
+        "height": 313
+      },
+      "pivot": {
+        "x": 157,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.10191082802547771,
+      "rotationOffsetDeg": 0,
+      "layer": "props"
+    },
+    {
+      "id": "sentry",
+      "name": "sentry",
+      "tags": [],
+      "source": "assets/sprites/objects.png",
+      "frame": {
+        "x": 627,
+        "y": 0,
+        "width": 313,
+        "height": 313
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.10223642172523961,
+      "rotationOffsetDeg": 0,
+      "layer": "props"
+    },
+    {
+      "id": "reactor",
+      "name": "reactor",
+      "tags": [],
+      "source": "assets/sprites/objects.png",
+      "frame": {
+        "x": 940,
+        "y": 0,
+        "width": 314,
+        "height": 313
+      },
+      "pivot": {
+        "x": 157,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.22929936305732485,
+      "rotationOffsetDeg": 0,
+      "layer": "props"
+    },
+    {
+      "id": "revolver",
+      "name": "revolver",
+      "tags": [],
+      "source": "assets/sprites/objects.png",
+      "frame": {
+        "x": 0,
+        "y": 313,
+        "width": 313,
+        "height": 314
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.10223642172523961,
+      "rotationOffsetDeg": 0,
+      "layer": "props"
+    },
+    {
+      "id": "shotgun",
+      "name": "shotgun",
+      "tags": [],
+      "source": "assets/sprites/objects.png",
+      "frame": {
+        "x": 313,
+        "y": 313,
+        "width": 314,
+        "height": 314
+      },
+      "pivot": {
+        "x": 157,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.10191082802547771,
+      "rotationOffsetDeg": 0,
+      "layer": "props"
+    },
+    {
+      "id": "crossbow",
+      "name": "crossbow",
+      "tags": [],
+      "source": "assets/sprites/objects.png",
+      "frame": {
+        "x": 627,
+        "y": 313,
+        "width": 313,
+        "height": 314
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.10223642172523961,
+      "rotationOffsetDeg": 0,
+      "layer": "props"
+    },
+    {
+      "id": "laser",
+      "name": "laser",
+      "tags": [],
+      "source": "assets/sprites/objects.png",
+      "frame": {
+        "x": 940,
+        "y": 313,
+        "width": 314,
+        "height": 314
+      },
+      "pivot": {
+        "x": 157,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.10191082802547771,
+      "rotationOffsetDeg": 0,
+      "layer": "props"
+    },
+    {
+      "id": "blade",
+      "name": "blade",
+      "tags": [],
+      "source": "assets/sprites/objects.png",
+      "frame": {
+        "x": 0,
+        "y": 627,
+        "width": 313,
+        "height": 313
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.10223642172523961,
+      "rotationOffsetDeg": 0,
+      "layer": "props"
+    },
+    {
+      "id": "crate",
+      "name": "crate",
+      "tags": [],
+      "source": "assets/sprites/objects.png",
+      "frame": {
+        "x": 313,
+        "y": 627,
+        "width": 314,
+        "height": 313
+      },
+      "pivot": {
+        "x": 157,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.10191082802547771,
+      "rotationOffsetDeg": 0,
+      "layer": "props"
+    },
+    {
+      "id": "crate_broken",
+      "name": "crate_broken",
+      "tags": [],
+      "source": "assets/sprites/objects.png",
+      "frame": {
+        "x": 627,
+        "y": 627,
+        "width": 313,
+        "height": 313
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.10223642172523961,
+      "rotationOffsetDeg": 0,
+      "layer": "props"
+    },
+    {
+      "id": "chest",
+      "name": "chest",
+      "tags": [],
+      "source": "assets/sprites/objects.png",
+      "frame": {
+        "x": 940,
+        "y": 627,
+        "width": 314,
+        "height": 313
+      },
+      "pivot": {
+        "x": 157,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.10191082802547771,
+      "rotationOffsetDeg": 0,
+      "layer": "props"
+    },
+    {
+      "id": "chest_open",
+      "name": "chest_open",
+      "tags": [],
+      "source": "assets/sprites/objects.png",
+      "frame": {
+        "x": 0,
+        "y": 940,
+        "width": 313,
+        "height": 314
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.10223642172523961,
+      "rotationOffsetDeg": 0,
+      "layer": "props"
+    },
+    {
+      "id": "crystal",
+      "name": "crystal",
+      "tags": [],
+      "source": "assets/sprites/objects.png",
+      "frame": {
+        "x": 313,
+        "y": 940,
+        "width": 314,
+        "height": 314
+      },
+      "pivot": {
+        "x": 157,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.10191082802547771,
+      "rotationOffsetDeg": 0,
+      "layer": "props"
+    },
+    {
+      "id": "ammo",
+      "name": "ammo",
+      "tags": [],
+      "source": "assets/sprites/objects.png",
+      "frame": {
+        "x": 627,
+        "y": 940,
+        "width": 313,
+        "height": 314
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.10223642172523961,
+      "rotationOffsetDeg": 0,
+      "layer": "props"
+    },
+    {
+      "id": "spark",
+      "name": "spark",
+      "tags": [],
+      "source": "assets/sprites/objects.png",
+      "frame": {
+        "x": 940,
+        "y": 940,
+        "width": 314,
+        "height": 314
+      },
+      "pivot": {
+        "x": 157,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.025477707006369428,
+      "rotationOffsetDeg": 0,
+      "layer": "props"
+    },
+    {
+      "id": "tile_0",
+      "name": "tile_0",
+      "tags": [],
+      "source": "assets/sprites/terrain.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "width": 313,
+        "height": 313
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.051118210862619806,
+      "rotationOffsetDeg": 0,
+      "layer": "floor"
+    },
+    {
+      "id": "tile_1",
+      "name": "tile_1",
+      "tags": [],
+      "source": "assets/sprites/terrain.png",
+      "frame": {
+        "x": 313,
+        "y": 0,
+        "width": 314,
+        "height": 313
+      },
+      "pivot": {
+        "x": 157,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.050955414012738856,
+      "rotationOffsetDeg": 0,
+      "layer": "floor"
+    },
+    {
+      "id": "tile_2",
+      "name": "tile_2",
+      "tags": [],
+      "source": "assets/sprites/terrain.png",
+      "frame": {
+        "x": 627,
+        "y": 0,
+        "width": 313,
+        "height": 313
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.051118210862619806,
+      "rotationOffsetDeg": 0,
+      "layer": "floor"
+    },
+    {
+      "id": "tile_3",
+      "name": "tile_3",
+      "tags": [],
+      "source": "assets/sprites/terrain.png",
+      "frame": {
+        "x": 940,
+        "y": 0,
+        "width": 314,
+        "height": 313
+      },
+      "pivot": {
+        "x": 157,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.050955414012738856,
+      "rotationOffsetDeg": 0,
+      "layer": "floor"
+    },
+    {
+      "id": "tile_4",
+      "name": "tile_4",
+      "tags": [],
+      "source": "assets/sprites/terrain.png",
+      "frame": {
+        "x": 0,
+        "y": 313,
+        "width": 313,
+        "height": 314
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.051118210862619806,
+      "rotationOffsetDeg": 0,
+      "layer": "floor"
+    },
+    {
+      "id": "tile_5",
+      "name": "tile_5",
+      "tags": [],
+      "source": "assets/sprites/terrain.png",
+      "frame": {
+        "x": 313,
+        "y": 313,
+        "width": 314,
+        "height": 314
+      },
+      "pivot": {
+        "x": 157,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.050955414012738856,
+      "rotationOffsetDeg": 0,
+      "layer": "floor"
+    },
+    {
+      "id": "tile_6",
+      "name": "tile_6",
+      "tags": [],
+      "source": "assets/sprites/terrain.png",
+      "frame": {
+        "x": 627,
+        "y": 313,
+        "width": 313,
+        "height": 314
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.051118210862619806,
+      "rotationOffsetDeg": 0,
+      "layer": "floor"
+    },
+    {
+      "id": "tile_7",
+      "name": "tile_7",
+      "tags": [],
+      "source": "assets/sprites/terrain.png",
+      "frame": {
+        "x": 940,
+        "y": 313,
+        "width": 314,
+        "height": 314
+      },
+      "pivot": {
+        "x": 157,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.050955414012738856,
+      "rotationOffsetDeg": 0,
+      "layer": "floor"
+    },
+    {
+      "id": "tile_8",
+      "name": "tile_8",
+      "tags": [],
+      "source": "assets/sprites/terrain.png",
+      "frame": {
+        "x": 0,
+        "y": 627,
+        "width": 313,
+        "height": 313
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.051118210862619806,
+      "rotationOffsetDeg": 0,
+      "layer": "floor"
+    },
+    {
+      "id": "tile_9",
+      "name": "tile_9",
+      "tags": [],
+      "source": "assets/sprites/terrain.png",
+      "frame": {
+        "x": 313,
+        "y": 627,
+        "width": 314,
+        "height": 313
+      },
+      "pivot": {
+        "x": 157,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.050955414012738856,
+      "rotationOffsetDeg": 0,
+      "layer": "floor"
+    },
+    {
+      "id": "tile_10",
+      "name": "tile_10",
+      "tags": [],
+      "source": "assets/sprites/terrain.png",
+      "frame": {
+        "x": 627,
+        "y": 627,
+        "width": 313,
+        "height": 313
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.051118210862619806,
+      "rotationOffsetDeg": 0,
+      "layer": "floor"
+    },
+    {
+      "id": "tile_11",
+      "name": "tile_11",
+      "tags": [],
+      "source": "assets/sprites/terrain.png",
+      "frame": {
+        "x": 940,
+        "y": 627,
+        "width": 314,
+        "height": 313
+      },
+      "pivot": {
+        "x": 157,
+        "y": 256.65999999999997
+      },
+      "renderScale": 0.050955414012738856,
+      "rotationOffsetDeg": 0,
+      "layer": "floor"
+    },
+    {
+      "id": "tile_12",
+      "name": "tile_12",
+      "tags": [],
+      "source": "assets/sprites/terrain.png",
+      "frame": {
+        "x": 0,
+        "y": 940,
+        "width": 313,
+        "height": 314
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.051118210862619806,
+      "rotationOffsetDeg": 0,
+      "layer": "floor"
+    },
+    {
+      "id": "tile_13",
+      "name": "tile_13",
+      "tags": [],
+      "source": "assets/sprites/terrain.png",
+      "frame": {
+        "x": 313,
+        "y": 940,
+        "width": 314,
+        "height": 314
+      },
+      "pivot": {
+        "x": 157,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.050955414012738856,
+      "rotationOffsetDeg": 0,
+      "layer": "floor"
+    },
+    {
+      "id": "tile_14",
+      "name": "tile_14",
+      "tags": [],
+      "source": "assets/sprites/terrain.png",
+      "frame": {
+        "x": 627,
+        "y": 940,
+        "width": 313,
+        "height": 314
+      },
+      "pivot": {
+        "x": 156.5,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.051118210862619806,
+      "rotationOffsetDeg": 0,
+      "layer": "floor"
+    },
+    {
+      "id": "tile_15",
+      "name": "tile_15",
+      "tags": [],
+      "source": "assets/sprites/terrain.png",
+      "frame": {
+        "x": 940,
+        "y": 940,
+        "width": 314,
+        "height": 314
+      },
+      "pivot": {
+        "x": 157,
+        "y": 257.47999999999996
+      },
+      "renderScale": 0.050955414012738856,
+      "rotationOffsetDeg": 0,
+      "layer": "floor"
+    }
+  ]
+}

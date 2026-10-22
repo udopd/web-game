@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "unlock_prism",
+      "name": "unlock_prism",
+      "tags": [],
+      "rewardCharacterId": "prism",
+      "mode": "any",
+      "progressScope": "account",
+      "participantRequirement": "participated",
+      "conditions": {
+        "type": "biome_completed",
+        "biomeId": "foundry"
+      },
+      "permanent": true
+    }
+  ]
+}

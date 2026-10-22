@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "physical",
+      "name": "physical",
+      "tags": []
+    },
+    {
+      "id": "energy",
+      "name": "energy",
+      "tags": []
+    },
+    {
+      "id": "electric",
+      "name": "electric",
+      "tags": []
+    },
+    {
+      "id": "melee",
+      "name": "melee",
+      "tags": []
+    },
+    {
+      "id": "poison",
+      "name": "poison",
+      "tags": []
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "revolver",
+      "name": "Copper Six",
+      "tags": [],
+      "spriteId": "revolver",
+      "class": "bullet",
+      "cooldownTicks": 8,
+      "magazineSize": 12,
+      "reloadTicks": 35,
+      "ammoPerShot": 1,
+      "spreadDeg": 3,
+      "pellets": 1,
+      "projectileId": "bullet"
+    },
+    {
+      "id": "shotgun",
+      "name": "Briar Scatter",
+      "tags": [],
+      "spriteId": "shotgun",
+      "class": "shotgun",
+      "cooldownTicks": 22,
+      "magazineSize": 12,
+      "reloadTicks": 35,
+      "ammoPerShot": 1,
+      "spreadDeg": 36,
+      "pellets": 7,
+      "projectileId": "pellet"
+    },
+    {
+      "id": "crossbow",
+      "name": "Needle Driver",
+      "tags": [],
+      "spriteId": "crossbow",
+      "class": "bolt",
+      "cooldownTicks": 18,
+      "magazineSize": 12,
+      "reloadTicks": 35,
+      "ammoPerShot": 1,
+      "spreadDeg": 0,
+      "pellets": 1,
+      "projectileId": "bolt"
+    },
+    {
+      "id": "laser",
+      "name": "Prism Coil",
+      "tags": [],
+      "spriteId": "laser",
+      "class": "laser",
+      "cooldownTicks": 6,
+      "magazineSize": 12,
+      "reloadTicks": 35,
+      "ammoPerShot": 1,
+      "spreadDeg": 0,
+      "pellets": 1,
+      "beamId": "beam"
+    },
+    {
+      "id": "blade",
+      "name": "Salvager",
+      "tags": [],
+      "spriteId": "blade",
+      "class": "melee",
+      "cooldownTicks": 14,
+      "magazineSize": 1,
+      "reloadTicks": 35,
+      "ammoPerShot": 0,
+      "spreadDeg": 0,
+      "pellets": 1,
+      "melee": {
+        "range": 42,
+        "arcDeg": 110,
+        "damage": 34,
+        "damageTypeId": "melee",
+        "knockback": 50
+      }
+    },
+    {
+      "id": "enemy_spitter",
+      "name": "enemy_spitter",
+      "tags": [],
+      "spriteId": "revolver",
+      "class": "bullet",
+      "cooldownTicks": 30,
+      "magazineSize": 100,
+      "reloadTicks": 30,
+      "ammoPerShot": 0,
+      "spreadDeg": 4,
+      "pellets": 1,
+      "projectileId": "enemy_bullet"
+    }
+  ]
+}

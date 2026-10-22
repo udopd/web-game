@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "overgrowth_rooms",
+      "name": "overgrowth_rooms",
+      "tags": [],
+      "width": 48,
+      "height": 32,
+      "rooms": 9,
+      "minRoomSize": 6,
+      "maxRoomSize": 10,
+      "floorTileId": "overgrowth_floor",
+      "wallTileId": "overgrowth_wall",
+      "requiredRoomTemplateIds": []
+    },
+    {
+      "id": "foundry_rooms",
+      "name": "foundry_rooms",
+      "tags": [],
+      "width": 48,
+      "height": 32,
+      "rooms": 9,
+      "minRoomSize": 6,
+      "maxRoomSize": 10,
+      "floorTileId": "foundry_floor",
+      "wallTileId": "foundry_wall",
+      "requiredRoomTemplateIds": []
+    }
+  ]
+}

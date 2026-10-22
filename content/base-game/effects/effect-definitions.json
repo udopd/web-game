@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "vigor_effect",
+      "name": "vigor_effect",
+      "tags": [],
+      "mode": "builtin",
+      "event": "entity.killed",
+      "probability": 1,
+      "cooldownTicks": 0,
+      "conditions": [],
+      "actions": [
+        {
+          "type": "heal",
+          "amount": 4
+        }
+      ]
+    },
+    {
+      "id": "stride_effect",
+      "name": "stride_effect",
+      "tags": [],
+      "mode": "builtin",
+      "event": "mutation.activated",
+      "probability": 1,
+      "cooldownTicks": 0,
+      "conditions": [],
+      "actions": [
+        {
+          "type": "modify_stat",
+          "stat": "moveSpeed",
+          "operation": "multiply",
+          "value": 1.2
+        }
+      ]
+    },
+    {
+      "id": "chain_effect",
+      "name": "chain_effect",
+      "tags": [],
+      "mode": "custom_extension",
+      "event": "entity.killed",
+      "probability": 1,
+      "cooldownTicks": 36,
+      "conditions": [],
+      "actions": [],
+      "extensionId": "ext.chain_lightning",
+      "extensionVersion": "1.0.0",
+      "params": {
+        "radius": 160,
+        "maxJumps": 3,
+        "damage": 12,
+        "cooldownTicks": 36,
+        "damageTypeId": "electric",
+        "vfxId": "sparks"
+      }
+    },
+    {
+      "id": "lucky_effect",
+      "name": "lucky_effect",
+      "tags": [],
+      "mode": "graph",
+      "event": "entity.killed",
+      "probability": 1,
+      "cooldownTicks": 0,
+      "conditions": [],
+      "actions": [],
+      "graphId": "healing_graph"
+    }
+  ]
+}

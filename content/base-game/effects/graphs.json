@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "healing_graph",
+      "name": "healing_graph",
+      "tags": [],
+      "event": "entity.killed",
+      "nodes": [
+        {
+          "id": "event",
+          "type": "event"
+        },
+        {
+          "id": "chance",
+          "type": "chance",
+          "probability": 0.5
+        },
+        {
+          "id": "heal",
+          "type": "action",
+          "action": {
+            "type": "heal",
+            "amount": 8
+          }
+        }
+      ],
+      "edges": [
+        {
+          "from": "event",
+          "to": "chance"
+        },
+        {
+          "from": "chance",
+          "to": "heal"
+        }
+      ]
+    }
+  ]
+}

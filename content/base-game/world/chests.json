@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "weapon_cache",
+      "name": "weapon_cache",
+      "tags": [],
+      "spriteId": "chest",
+      "animationSet": {
+        "idle": "chest_idle",
+        "open": "chest_open_anim"
+      },
+      "collision": {
+        "shape": "box",
+        "width": 20,
+        "height": 16
+      },
+      "interaction": {
+        "mode": "interact",
+        "radius": 40,
+        "openTicks": 10
+      },
+      "rewards": {
+        "dropRuleId": "guaranteed",
+        "lootTableId": "arsenal"
+      },
+      "policy": "shared_world"
+    }
+  ]
+}

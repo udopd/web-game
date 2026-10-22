@@ -1,0 +1,173 @@
+{
+  "additionalProperties": false,
+  "$id": "https://emberfall.local/schema/weapons",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "items": {
+      "maxItems": 10000,
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tags",
+          "spriteId",
+          "class",
+          "cooldownTicks",
+          "magazineSize",
+          "reloadTicks",
+          "ammoPerShot",
+          "spreadDeg",
+          "pellets"
+        ],
+        "properties": {
+          "id": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "maxLength": 100,
+            "type": "string"
+          },
+          "tags": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "maxLength": 160,
+              "type": "string"
+            }
+          },
+          "spriteId": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string",
+            "x-collection": "sprites"
+          },
+          "class": {
+            "anyOf": [
+              {
+                "const": "melee",
+                "type": "string"
+              },
+              {
+                "const": "bullet",
+                "type": "string"
+              },
+              {
+                "const": "shotgun",
+                "type": "string"
+              },
+              {
+                "const": "bolt",
+                "type": "string"
+              },
+              {
+                "const": "laser",
+                "type": "string"
+              }
+            ]
+          },
+          "cooldownTicks": {
+            "minimum": 1,
+            "maximum": 1800,
+            "default": 10,
+            "type": "integer"
+          },
+          "magazineSize": {
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 12,
+            "type": "integer"
+          },
+          "reloadTicks": {
+            "minimum": 1,
+            "maximum": 1800,
+            "default": 30,
+            "type": "integer"
+          },
+          "ammoPerShot": {
+            "minimum": 0,
+            "maximum": 100,
+            "default": 1,
+            "type": "integer"
+          },
+          "spreadDeg": {
+            "minimum": 0,
+            "maximum": 180,
+            "default": 0,
+            "type": "number"
+          },
+          "pellets": {
+            "minimum": 1,
+            "maximum": 64,
+            "default": 1,
+            "type": "integer"
+          },
+          "projectileId": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string",
+            "x-collection": "projectiles"
+          },
+          "beamId": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string",
+            "x-collection": "beams"
+          },
+          "melee": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "range",
+              "arcDeg",
+              "damage",
+              "damageTypeId",
+              "knockback"
+            ],
+            "properties": {
+              "range": {
+                "minimum": 1,
+                "maximum": 300,
+                "default": 48,
+                "type": "number"
+              },
+              "arcDeg": {
+                "minimum": 1,
+                "maximum": 360,
+                "default": 90,
+                "type": "number"
+              },
+              "damage": {
+                "minimum": 1,
+                "maximum": 10000,
+                "default": 20,
+                "type": "number"
+              },
+              "damageTypeId": {
+                "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                "type": "string",
+                "x-collection": "damageTypes"
+              },
+              "knockback": {
+                "minimum": 0,
+                "maximum": 500,
+                "default": 0,
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

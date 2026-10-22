@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "fire_fx",
+      "name": "fire_fx",
+      "tags": [],
+      "event": "weapon.fired",
+      "conditions": [],
+      "actions": [
+        {
+          "type": "play_sfx",
+          "soundId": "shot"
+        },
+        {
+          "type": "camera_effect",
+          "cameraEffectId": "impact",
+          "scope": "local_actor"
+        }
+      ],
+      "cooldownMs": 0,
+      "probability": 1,
+      "enabled": true
+    },
+    {
+      "id": "hit_fx",
+      "name": "hit_fx",
+      "tags": [],
+      "event": "projectile.hit",
+      "conditions": [],
+      "actions": [
+        {
+          "type": "spawn_particles",
+          "particleEffectId": "sparks"
+        }
+      ],
+      "cooldownMs": 0,
+      "probability": 1,
+      "enabled": true
+    },
+    {
+      "id": "level_music",
+      "name": "level_music",
+      "tags": [],
+      "event": "level.started",
+      "conditions": [],
+      "actions": [
+        {
+          "type": "switch_music",
+          "musicId": "frontier"
+        }
+      ],
+      "cooldownMs": 0,
+      "probability": 1,
+      "enabled": true
+    }
+  ]
+}

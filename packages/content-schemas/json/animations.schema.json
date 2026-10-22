@@ -1,0 +1,259 @@
+{
+  "additionalProperties": false,
+  "$id": "https://emberfall.local/schema/animations",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "items": {
+      "maxItems": 10000,
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tags",
+          "loop",
+          "holdLastFrame",
+          "defaultFrameDurationMs",
+          "direction",
+          "frames"
+        ],
+        "properties": {
+          "id": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "maxLength": 100,
+            "type": "string"
+          },
+          "tags": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "maxLength": 160,
+              "type": "string"
+            }
+          },
+          "loop": {
+            "type": "boolean"
+          },
+          "holdLastFrame": {
+            "type": "boolean"
+          },
+          "defaultFrameDurationMs": {
+            "minimum": 16,
+            "maximum": 5000,
+            "default": 100,
+            "type": "integer"
+          },
+          "direction": {
+            "anyOf": [
+              {
+                "const": "right",
+                "type": "string"
+              },
+              {
+                "const": "left",
+                "type": "string"
+              },
+              {
+                "const": "up",
+                "type": "string"
+              },
+              {
+                "const": "down",
+                "type": "string"
+              },
+              {
+                "const": "any",
+                "type": "string"
+              }
+            ]
+          },
+          "frames": {
+            "minItems": 1,
+            "maxItems": 256,
+            "type": "array",
+            "items": {
+              "additionalProperties": false,
+              "type": "object",
+              "required": [
+                "spriteId",
+                "durationMs",
+                "offset",
+                "events"
+              ],
+              "properties": {
+                "spriteId": {
+                  "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                  "type": "string",
+                  "x-collection": "sprites"
+                },
+                "durationMs": {
+                  "minimum": 16,
+                  "maximum": 5000,
+                  "default": 100,
+                  "type": "integer"
+                },
+                "offset": {
+                  "additionalProperties": false,
+                  "type": "object",
+                  "required": [
+                    "x",
+                    "y"
+                  ],
+                  "properties": {
+                    "x": {
+                      "minimum": -100000,
+                      "maximum": 100000,
+                      "default": 0,
+                      "type": "number"
+                    },
+                    "y": {
+                      "minimum": -100000,
+                      "maximum": 100000,
+                      "default": 0,
+                      "type": "number"
+                    }
+                  }
+                },
+                "events": {
+                  "maxItems": 16,
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "soundId"
+                        ],
+                        "properties": {
+                          "type": {
+                            "const": "play_sfx",
+                            "type": "string"
+                          },
+                          "soundId": {
+                            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                            "type": "string",
+                            "x-collection": "sounds"
+                          }
+                        }
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "particleEffectId"
+                        ],
+                        "properties": {
+                          "type": {
+                            "const": "spawn_particles",
+                            "type": "string"
+                          },
+                          "particleEffectId": {
+                            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                            "type": "string",
+                            "x-collection": "particles"
+                          }
+                        }
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "cameraEffectId",
+                          "scope"
+                        ],
+                        "properties": {
+                          "type": {
+                            "const": "camera_effect",
+                            "type": "string"
+                          },
+                          "cameraEffectId": {
+                            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                            "type": "string",
+                            "x-collection": "cameraEffects"
+                          },
+                          "scope": {
+                            "anyOf": [
+                              {
+                                "const": "local_actor",
+                                "type": "string"
+                              },
+                              {
+                                "const": "nearby_players",
+                                "type": "string"
+                              },
+                              {
+                                "const": "all_room",
+                                "type": "string"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "musicId"
+                        ],
+                        "properties": {
+                          "type": {
+                            "const": "switch_music",
+                            "type": "string"
+                          },
+                          "musicId": {
+                            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                            "type": "string",
+                            "x-collection": "music"
+                          }
+                        }
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "animationId"
+                        ],
+                        "properties": {
+                          "type": {
+                            "const": "play_animation",
+                            "type": "string"
+                          },
+                          "animationId": {
+                            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                            "type": "string",
+                            "x-collection": "animations"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

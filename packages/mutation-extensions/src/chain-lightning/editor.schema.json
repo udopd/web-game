@@ -1,0 +1,1 @@
+{"title":"Chain lightning","preview":"mutation","fields":[{"path":"radius","unit":"world pixels","description":"Maximum distance for each jump"},{"path":"maxJumps","unit":"targets","description":"Unique enemies hit per chain"},{"path":"damage","unit":"HP","description":"Damage per jump"},{"path":"cooldownTicks","unit":"ticks","description":"30 ticks equal one second"}]}

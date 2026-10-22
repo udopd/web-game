@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "supply_crate",
+      "name": "supply_crate",
+      "tags": [],
+      "spriteId": "crate",
+      "destroyedSpriteId": "crate_broken",
+      "collision": {
+        "shape": "box",
+        "width": 14,
+        "height": 14
+      },
+      "blocksMovement": true,
+      "blocksProjectiles": true,
+      "blocksLineOfSight": true,
+      "destructible": true,
+      "maxHealth": 22,
+      "resistances": {
+        "physical": 1,
+        "energy": 1,
+        "melee": 2
+      },
+      "rewards": {
+        "dropRuleId": "common_drop",
+        "lootTableId": "field_supplies"
+      }
+    }
+  ]
+}

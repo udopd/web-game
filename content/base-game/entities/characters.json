@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "moss",
+      "name": "Moss",
+      "tags": [],
+      "description": "A salvage scout from the overgrown frontier.",
+      "spriteId": "scout_0",
+      "animationSet": {
+        "idle": "scout_idle",
+        "run": "scout_run",
+        "hurt": "scout_hurt",
+        "death": "scout_death",
+        "victory": "scout_victory"
+      },
+      "collision": {
+        "shape": "circle",
+        "radius": 7
+      },
+      "stats": {
+        "maxHealth": 110,
+        "moveSpeed": 130,
+        "armor": 0,
+        "damageMultiplier": 1,
+        "fireRateMultiplier": 1,
+        "critChance": 0.05,
+        "pickupRadius": 24
+      },
+      "startingWeaponIds": [
+        "revolver",
+        "blade"
+      ],
+      "unlockRuleId": null,
+      "facingMode": "horizontal_flip"
+    },
+    {
+      "id": "prism",
+      "name": "Prism",
+      "tags": [],
+      "description": "Clear the Foundry to awaken this energy specialist.",
+      "spriteId": "scout_0",
+      "animationSet": {
+        "idle": "scout_idle",
+        "run": "scout_run",
+        "hurt": "scout_hurt",
+        "death": "scout_death",
+        "victory": "scout_victory"
+      },
+      "collision": {
+        "shape": "circle",
+        "radius": 7
+      },
+      "stats": {
+        "maxHealth": 85,
+        "moveSpeed": 155,
+        "armor": 0,
+        "damageMultiplier": 1,
+        "fireRateMultiplier": 1,
+        "critChance": 0.05,
+        "pickupRadius": 24
+      },
+      "startingWeaponIds": [
+        "laser",
+        "crossbow"
+      ],
+      "unlockRuleId": "unlock_prism",
+      "facingMode": "horizontal_flip"
+    }
+  ]
+}

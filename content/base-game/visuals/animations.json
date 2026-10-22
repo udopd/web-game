@@ -1,0 +1,533 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "scout_idle",
+      "name": "scout_idle",
+      "tags": [],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "scout_0",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "scout_1",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "scout_2",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "scout_3",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "scout_run",
+      "name": "scout_run",
+      "tags": [],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "scout_4",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "scout_5",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "scout_6",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "scout_7",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "scout_hurt",
+      "name": "scout_hurt",
+      "tags": [],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "scout_8",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "scout_9",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "scout_death",
+      "name": "scout_death",
+      "tags": [],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "scout_10",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "scout_11",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "scout_victory",
+      "name": "scout_victory",
+      "tags": [],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "scout_12",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "scout_13",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "scout_14",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "scout_15",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "beetle_enemy_idle",
+      "name": "beetle_enemy_idle",
+      "tags": [],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "beetle",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "beetle_enemy_run",
+      "name": "beetle_enemy_run",
+      "tags": [],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "beetle",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "beetle_enemy_hurt",
+      "name": "beetle_enemy_hurt",
+      "tags": [],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "beetle",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "beetle_enemy_death",
+      "name": "beetle_enemy_death",
+      "tags": [],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "beetle",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "spore_enemy_idle",
+      "name": "spore_enemy_idle",
+      "tags": [],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "spore",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "spore_enemy_run",
+      "name": "spore_enemy_run",
+      "tags": [],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "spore",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "spore_enemy_hurt",
+      "name": "spore_enemy_hurt",
+      "tags": [],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "spore",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "spore_enemy_death",
+      "name": "spore_enemy_death",
+      "tags": [],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "spore",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "sentry_enemy_idle",
+      "name": "sentry_enemy_idle",
+      "tags": [],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "sentry",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "sentry_enemy_run",
+      "name": "sentry_enemy_run",
+      "tags": [],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "sentry",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "sentry_enemy_hurt",
+      "name": "sentry_enemy_hurt",
+      "tags": [],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "sentry",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "sentry_enemy_death",
+      "name": "sentry_enemy_death",
+      "tags": [],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "sentry",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "reactor_idle",
+      "name": "reactor_idle",
+      "tags": [],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "reactor",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "reactor_death",
+      "name": "reactor_death",
+      "tags": [],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "reactor",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "chest_idle",
+      "name": "chest_idle",
+      "tags": [],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "chest",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "chest_open_anim",
+      "name": "chest_open_anim",
+      "tags": [],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "chest",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "chest_open",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    }
+  ]
+}

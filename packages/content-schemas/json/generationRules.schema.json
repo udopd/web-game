@@ -1,0 +1,103 @@
+{
+  "additionalProperties": false,
+  "$id": "https://emberfall.local/schema/generationRules",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "items": {
+      "maxItems": 10000,
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tags",
+          "width",
+          "height",
+          "rooms",
+          "minRoomSize",
+          "maxRoomSize",
+          "floorTileId",
+          "wallTileId",
+          "requiredRoomTemplateIds"
+        ],
+        "properties": {
+          "id": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "maxLength": 100,
+            "type": "string"
+          },
+          "tags": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "maxLength": 160,
+              "type": "string"
+            }
+          },
+          "width": {
+            "minimum": 16,
+            "maximum": 128,
+            "default": 48,
+            "type": "integer"
+          },
+          "height": {
+            "minimum": 16,
+            "maximum": 128,
+            "default": 32,
+            "type": "integer"
+          },
+          "rooms": {
+            "minimum": 2,
+            "maximum": 30,
+            "default": 8,
+            "type": "integer"
+          },
+          "minRoomSize": {
+            "minimum": 4,
+            "maximum": 20,
+            "default": 5,
+            "type": "integer"
+          },
+          "maxRoomSize": {
+            "minimum": 4,
+            "maximum": 30,
+            "default": 10,
+            "type": "integer"
+          },
+          "floorTileId": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string"
+          },
+          "wallTileId": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string"
+          },
+          "requiredRoomTemplateIds": {
+            "maxItems": 16,
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+              "type": "string",
+              "x-collection": "roomTemplates"
+            }
+          }
+        }
+      }
+    }
+  }
+}

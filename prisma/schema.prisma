@@ -1,0 +1,139 @@
+generator client {
+ provider = "prisma-client"
+ output = "../generated/prisma"
+}
+datasource db {
+ provider = "postgresql"
+}
+model User {
+ uid String @id @default(uuid()) @db.Uuid
+ name String
+ settings Json
+ kills Int @default(0)
+ deaths Int @default(0)
+ maxDepth Int @default(0)
+ progressVersion Int @default(0)
+ facts Json
+ createdAt DateTime @default(now())
+ sessions Session[]
+ participants Participant[]
+ unlocks Unlock[]
+ events ProgressEvent[]
+ resets ProgressReset[]
+ @@index([kills(sort: Desc)])
+ @@index([maxDepth(sort: Desc)])
+}
+model Session {
+ hash String @id
+ role String
+ uid String? @db.Uuid
+ user User? @relation(fields: [uid], references: [uid], onDelete: Cascade)
+ csrf String
+ epoch String
+ expiresAt DateTime
+ lastSeen DateTime
+ @@index([expiresAt])
+}
+model Draft {
+ id String @id
+ name String
+ revision Int @default(1)
+ content Json
+ ui Json
+ updatedAt DateTime @updatedAt
+}
+model Pack {
+ version String @id
+ hash String @unique
+ manifest Json
+ content Json
+ archiveKey String
+ createdAt DateTime @default(now())
+ runs Run[]
+}
+model ActiveContent {
+ id Int @id
+ version String
+}
+model Asset {
+ hash String
+ key String @id
+ name String
+ mime String
+ size Int
+ width Int?
+ height Int?
+ durationMs Int?
+ createdAt DateTime @default(now())
+ @@index([hash])
+}
+model Audit {
+ id String @id @default(uuid())
+ action String
+ resource String
+ requestId String
+ digest String?
+ status String
+ createdAt DateTime @default(now())
+ @@index([createdAt])
+}
+model Room {
+ id String @id
+ ownerId String
+ members Json
+ status String
+ campaignId String
+ contentVersion String
+ runId String? @unique @db.Uuid
+ updatedAt DateTime @updatedAt
+}
+model Run {
+ id String @id @default(uuid()) @db.Uuid
+ contentVersion String
+ pack Pack @relation(fields: [contentVersion], references: [version])
+ state Json
+ revision Int @default(1)
+ status String
+ startedAt DateTime @default(now())
+ endedAt DateTime?
+ participants Participant[]
+ events ProgressEvent[]
+}
+model Participant {
+ runId String @db.Uuid
+ uid String @db.Uuid
+ run Run @relation(fields: [runId], references: [id])
+ user User @relation(fields: [uid], references: [uid])
+ countedKills Int @default(0)
+ countedDeath Boolean @default(false)
+ canResume Boolean @default(true)
+ @@id([runId, uid])
+}
+model Unlock {
+ uid String @db.Uuid
+ characterId String
+ ruleId String
+ contentVersion String
+ sourceRunId String
+ user User @relation(fields: [uid], references: [uid])
+ createdAt DateTime @default(now())
+ @@id([uid, characterId])
+}
+model ProgressEvent {
+ id String @id
+ uid String @db.Uuid
+ runId String @db.Uuid
+ type String
+ payload Json
+ user User @relation(fields: [uid], references: [uid])
+ run Run @relation(fields: [runId], references: [id])
+ createdAt DateTime @default(now())
+ @@index([uid, runId])
+}
+model ProgressReset {
+ id String @id
+ uid String @db.Uuid
+ user User @relation(fields: [uid], references: [uid])
+ version Int
+ createdAt DateTime @default(now())
+}

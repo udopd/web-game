@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "common_drop",
+      "name": "common_drop",
+      "tags": [],
+      "baseChance": 0.55,
+      "slopePerPoint": 0.0125,
+      "baseline": 1,
+      "minMultiplier": 0.5,
+      "maxMultiplier": 2.25,
+      "levelMultiplier": 1,
+      "coopMultiplier": 1.5,
+      "rollsMin": 1,
+      "rollsMax": 1,
+      "guaranteedDrop": false
+    },
+    {
+      "id": "guaranteed",
+      "name": "guaranteed",
+      "tags": [],
+      "baseChance": 1,
+      "slopePerPoint": 0,
+      "baseline": 1,
+      "minMultiplier": 1,
+      "maxMultiplier": 1,
+      "levelMultiplier": 1,
+      "coopMultiplier": 1,
+      "rollsMin": 2,
+      "rollsMax": 3,
+      "guaranteedDrop": true
+    }
+  ]
+}

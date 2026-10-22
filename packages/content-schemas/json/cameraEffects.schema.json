@@ -1,0 +1,106 @@
+{
+  "additionalProperties": false,
+  "$id": "https://emberfall.local/schema/cameraEffects",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "items": {
+      "maxItems": 10000,
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tags",
+          "durationMs",
+          "amplitudePx",
+          "frequencyHz",
+          "falloff",
+          "stacking",
+          "maxDistance"
+        ],
+        "properties": {
+          "id": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "maxLength": 100,
+            "type": "string"
+          },
+          "tags": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "maxLength": 160,
+              "type": "string"
+            }
+          },
+          "durationMs": {
+            "minimum": 1,
+            "maximum": 10000,
+            "default": 100,
+            "type": "integer"
+          },
+          "amplitudePx": {
+            "minimum": 0,
+            "maximum": 32,
+            "default": 3,
+            "type": "number"
+          },
+          "frequencyHz": {
+            "minimum": 1,
+            "maximum": 120,
+            "default": 24,
+            "type": "number"
+          },
+          "falloff": {
+            "anyOf": [
+              {
+                "const": "linear",
+                "type": "string"
+              },
+              {
+                "const": "easeOut",
+                "type": "string"
+              }
+            ]
+          },
+          "stacking": {
+            "anyOf": [
+              {
+                "const": "max",
+                "type": "string"
+              },
+              {
+                "const": "replace",
+                "type": "string"
+              },
+              {
+                "const": "add_capped",
+                "type": "string"
+              }
+            ]
+          },
+          "maxDistance": {
+            "minimum": 1,
+            "maximum": 5000,
+            "default": 900,
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

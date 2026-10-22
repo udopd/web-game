@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "beetle_enemy",
+      "name": "beetle_enemy",
+      "tags": [],
+      "spriteId": "beetle",
+      "animationSet": {
+        "idle": "beetle_enemy_idle",
+        "run": "beetle_enemy_run",
+        "hurt": "beetle_enemy_hurt",
+        "death": "beetle_enemy_death"
+      },
+      "collision": {
+        "shape": "circle",
+        "radius": 8
+      },
+      "stats": {
+        "maxHealth": 35,
+        "moveSpeed": 70,
+        "armor": 0,
+        "damageMultiplier": 1,
+        "fireRateMultiplier": 1,
+        "critChance": 0.05,
+        "pickupRadius": 24
+      },
+      "behaviorId": "hunter",
+      "attackPatternIds": [
+        "bite"
+      ],
+      "difficultyRating": 10,
+      "contactDamage": 6,
+      "xpReward": 10,
+      "rewards": {
+        "dropRuleId": "common_drop",
+        "lootTableId": "field_supplies"
+      }
+    },
+    {
+      "id": "spore_enemy",
+      "name": "spore_enemy",
+      "tags": [],
+      "spriteId": "spore",
+      "animationSet": {
+        "idle": "spore_enemy_idle",
+        "run": "spore_enemy_run",
+        "hurt": "spore_enemy_hurt",
+        "death": "spore_enemy_death"
+      },
+      "collision": {
+        "shape": "circle",
+        "radius": 8
+      },
+      "stats": {
+        "maxHealth": 50,
+        "moveSpeed": 45,
+        "armor": 0,
+        "damageMultiplier": 1,
+        "fireRateMultiplier": 1,
+        "critChance": 0.05,
+        "pickupRadius": 24
+      },
+      "behaviorId": "spitter",
+      "attackPatternIds": [
+        "spit"
+      ],
+      "difficultyRating": 10,
+      "contactDamage": 6,
+      "xpReward": 10,
+      "rewards": {
+        "dropRuleId": "common_drop",
+        "lootTableId": "field_supplies"
+      }
+    },
+    {
+      "id": "sentry_enemy",
+      "name": "sentry_enemy",
+      "tags": [],
+      "spriteId": "sentry",
+      "animationSet": {
+        "idle": "sentry_enemy_idle",
+        "run": "sentry_enemy_run",
+        "hurt": "sentry_enemy_hurt",
+        "death": "sentry_enemy_death"
+      },
+      "collision": {
+        "shape": "circle",
+        "radius": 8
+      },
+      "stats": {
+        "maxHealth": 85,
+        "moveSpeed": 55,
+        "armor": 0,
+        "damageMultiplier": 1,
+        "fireRateMultiplier": 1,
+        "critChance": 0.05,
+        "pickupRadius": 24
+      },
+      "behaviorId": "orbit",
+      "attackPatternIds": [
+        "spit"
+      ],
+      "difficultyRating": 10,
+      "contactDamage": 6,
+      "xpReward": 10,
+      "rewards": {
+        "dropRuleId": "common_drop",
+        "lootTableId": "field_supplies"
+      }
+    }
+  ]
+}

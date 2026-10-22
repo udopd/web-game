@@ -1,0 +1,105 @@
+{
+  "additionalProperties": false,
+  "$id": "https://emberfall.local/schema/lootTables",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "items": {
+      "maxItems": 10000,
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tags",
+          "entries"
+        ],
+        "properties": {
+          "id": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "maxLength": 100,
+            "type": "string"
+          },
+          "tags": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "maxLength": 160,
+              "type": "string"
+            }
+          },
+          "entries": {
+            "minItems": 1,
+            "maxItems": 256,
+            "type": "array",
+            "items": {
+              "additionalProperties": false,
+              "type": "object",
+              "required": [
+                "rewardType",
+                "rewardId",
+                "weight",
+                "min",
+                "max"
+              ],
+              "properties": {
+                "rewardType": {
+                  "anyOf": [
+                    {
+                      "const": "pickup",
+                      "type": "string"
+                    },
+                    {
+                      "const": "weapon",
+                      "type": "string"
+                    },
+                    {
+                      "const": "mutation",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "rewardId": {
+                  "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                  "type": "string"
+                },
+                "weight": {
+                  "minimum": 0.001,
+                  "maximum": 100000,
+                  "default": 1,
+                  "type": "number"
+                },
+                "min": {
+                  "minimum": 1,
+                  "maximum": 100,
+                  "default": 1,
+                  "type": "integer"
+                },
+                "max": {
+                  "minimum": 1,
+                  "maximum": 100,
+                  "default": 1,
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

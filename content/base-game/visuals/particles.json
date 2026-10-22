@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "sparks",
+      "name": "sparks",
+      "tags": [],
+      "spriteId": "spark",
+      "emission": {
+        "mode": "burst",
+        "count": 12,
+        "ratePerSecond": 0,
+        "durationMs": 0,
+        "maxAlive": 100,
+        "shape": "point",
+        "shapeRadius": 0,
+        "directionDeg": 0,
+        "spreadDeg": 360
+      },
+      "motion": {
+        "speed": {
+          "min": 35,
+          "max": 100
+        },
+        "acceleration": {
+          "x": 0,
+          "y": 0
+        },
+        "gravity": {
+          "x": 0,
+          "y": 40
+        },
+        "dragPerSecond": 1.4,
+        "rotationDeg": {
+          "min": 0,
+          "max": 360
+        },
+        "angularVelocityDegPerSecond": {
+          "min": -180,
+          "max": 180
+        },
+        "alignToVelocity": false
+      },
+      "lifetimeMs": {
+        "min": 180,
+        "max": 450
+      },
+      "sizeOverLife": [
+        {
+          "t": 0,
+          "value": 1
+        },
+        {
+          "t": 1,
+          "value": 0
+        }
+      ],
+      "alphaOverLife": [
+        {
+          "t": 0,
+          "value": 1
+        },
+        {
+          "t": 1,
+          "value": 0
+        }
+      ],
+      "collision": {
+        "mode": "none",
+        "restitution": 0
+      },
+      "color": "#eeb75a",
+      "priority": 50
+    }
+  ]
+}

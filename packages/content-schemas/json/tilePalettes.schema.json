@@ -1,0 +1,124 @@
+{
+  "additionalProperties": false,
+  "$id": "https://emberfall.local/schema/tilePalettes",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "items": {
+      "maxItems": 10000,
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tags",
+          "tileSize",
+          "tiles"
+        ],
+        "properties": {
+          "id": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "maxLength": 100,
+            "type": "string"
+          },
+          "tags": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "maxLength": 160,
+              "type": "string"
+            }
+          },
+          "tileSize": {
+            "minimum": 8,
+            "maximum": 64,
+            "default": 16,
+            "type": "integer"
+          },
+          "tiles": {
+            "minItems": 1,
+            "maxItems": 512,
+            "type": "array",
+            "items": {
+              "additionalProperties": false,
+              "type": "object",
+              "required": [
+                "id",
+                "spriteId",
+                "walkable",
+                "projectileBlocking",
+                "variants"
+              ],
+              "properties": {
+                "id": {
+                  "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                  "type": "string"
+                },
+                "spriteId": {
+                  "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                  "type": "string",
+                  "x-collection": "sprites"
+                },
+                "walkable": {
+                  "type": "boolean"
+                },
+                "projectileBlocking": {
+                  "type": "boolean"
+                },
+                "variants": {
+                  "maxItems": 32,
+                  "type": "array",
+                  "items": {
+                    "additionalProperties": false,
+                    "type": "object",
+                    "required": [
+                      "spriteId",
+                      "weight"
+                    ],
+                    "properties": {
+                      "spriteId": {
+                        "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                        "type": "string",
+                        "x-collection": "sprites"
+                      },
+                      "weight": {
+                        "minimum": 0.001,
+                        "maximum": 10000,
+                        "default": 1,
+                        "type": "number"
+                      }
+                    }
+                  }
+                },
+                "autotile": {
+                  "type": "object",
+                  "patternProperties": {
+                    "^([0-9]|1[0-5])$": {
+                      "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+                      "type": "string",
+                      "x-collection": "sprites"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

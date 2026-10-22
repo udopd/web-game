@@ -1,0 +1,403 @@
+{
+  "additionalProperties": false,
+  "$id": "https://emberfall.local/schema/particles",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "items"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "items": {
+      "maxItems": 10000,
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tags",
+          "spriteId",
+          "emission",
+          "motion",
+          "lifetimeMs",
+          "sizeOverLife",
+          "alphaOverLife",
+          "collision",
+          "color",
+          "priority"
+        ],
+        "properties": {
+          "id": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "maxLength": 100,
+            "type": "string"
+          },
+          "tags": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "maxLength": 160,
+              "type": "string"
+            }
+          },
+          "spriteId": {
+            "pattern": "^[a-z][a-z0-9_.-]{0,79}$",
+            "type": "string",
+            "x-collection": "sprites"
+          },
+          "emission": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "mode",
+              "count",
+              "ratePerSecond",
+              "durationMs",
+              "maxAlive",
+              "shape",
+              "shapeRadius",
+              "directionDeg",
+              "spreadDeg"
+            ],
+            "properties": {
+              "mode": {
+                "anyOf": [
+                  {
+                    "const": "burst",
+                    "type": "string"
+                  },
+                  {
+                    "const": "continuous",
+                    "type": "string"
+                  }
+                ]
+              },
+              "count": {
+                "minimum": 0,
+                "maximum": 1000,
+                "default": 16,
+                "type": "integer"
+              },
+              "ratePerSecond": {
+                "minimum": 0,
+                "maximum": 1000,
+                "default": 0,
+                "type": "number"
+              },
+              "durationMs": {
+                "minimum": 0,
+                "maximum": 60000,
+                "default": 500,
+                "type": "integer"
+              },
+              "maxAlive": {
+                "minimum": 1,
+                "maximum": 10000,
+                "default": 100,
+                "type": "integer"
+              },
+              "shape": {
+                "anyOf": [
+                  {
+                    "const": "point",
+                    "type": "string"
+                  },
+                  {
+                    "const": "circle",
+                    "type": "string"
+                  },
+                  {
+                    "const": "line",
+                    "type": "string"
+                  },
+                  {
+                    "const": "rectangle",
+                    "type": "string"
+                  }
+                ]
+              },
+              "shapeRadius": {
+                "minimum": 0,
+                "maximum": 500,
+                "default": 0,
+                "type": "number"
+              },
+              "directionDeg": {
+                "minimum": -360,
+                "maximum": 360,
+                "default": 0,
+                "type": "number"
+              },
+              "spreadDeg": {
+                "minimum": 0,
+                "maximum": 360,
+                "default": 360,
+                "type": "number"
+              }
+            }
+          },
+          "motion": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "speed",
+              "acceleration",
+              "gravity",
+              "dragPerSecond",
+              "rotationDeg",
+              "angularVelocityDegPerSecond",
+              "alignToVelocity"
+            ],
+            "properties": {
+              "speed": {
+                "additionalProperties": false,
+                "type": "object",
+                "required": [
+                  "min",
+                  "max"
+                ],
+                "properties": {
+                  "min": {
+                    "minimum": 0,
+                    "maximum": 100000,
+                    "default": 0,
+                    "type": "number"
+                  },
+                  "max": {
+                    "minimum": 0,
+                    "maximum": 100000,
+                    "default": 0,
+                    "type": "number"
+                  }
+                }
+              },
+              "acceleration": {
+                "additionalProperties": false,
+                "type": "object",
+                "required": [
+                  "x",
+                  "y"
+                ],
+                "properties": {
+                  "x": {
+                    "minimum": -100000,
+                    "maximum": 100000,
+                    "default": 0,
+                    "type": "number"
+                  },
+                  "y": {
+                    "minimum": -100000,
+                    "maximum": 100000,
+                    "default": 0,
+                    "type": "number"
+                  }
+                }
+              },
+              "gravity": {
+                "additionalProperties": false,
+                "type": "object",
+                "required": [
+                  "x",
+                  "y"
+                ],
+                "properties": {
+                  "x": {
+                    "minimum": -100000,
+                    "maximum": 100000,
+                    "default": 0,
+                    "type": "number"
+                  },
+                  "y": {
+                    "minimum": -100000,
+                    "maximum": 100000,
+                    "default": 0,
+                    "type": "number"
+                  }
+                }
+              },
+              "dragPerSecond": {
+                "minimum": 0,
+                "maximum": 20,
+                "default": 0,
+                "type": "number"
+              },
+              "rotationDeg": {
+                "additionalProperties": false,
+                "type": "object",
+                "required": [
+                  "min",
+                  "max"
+                ],
+                "properties": {
+                  "min": {
+                    "minimum": 0,
+                    "maximum": 100000,
+                    "default": 0,
+                    "type": "number"
+                  },
+                  "max": {
+                    "minimum": 0,
+                    "maximum": 100000,
+                    "default": 0,
+                    "type": "number"
+                  }
+                }
+              },
+              "angularVelocityDegPerSecond": {
+                "additionalProperties": false,
+                "type": "object",
+                "required": [
+                  "min",
+                  "max"
+                ],
+                "properties": {
+                  "min": {
+                    "minimum": -3600,
+                    "maximum": 3600,
+                    "default": 0,
+                    "type": "number"
+                  },
+                  "max": {
+                    "minimum": -3600,
+                    "maximum": 3600,
+                    "default": 0,
+                    "type": "number"
+                  }
+                }
+              },
+              "alignToVelocity": {
+                "type": "boolean"
+              }
+            }
+          },
+          "lifetimeMs": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "min",
+              "max"
+            ],
+            "properties": {
+              "min": {
+                "minimum": 0,
+                "maximum": 100000,
+                "default": 0,
+                "type": "number"
+              },
+              "max": {
+                "minimum": 0,
+                "maximum": 100000,
+                "default": 0,
+                "type": "number"
+              }
+            }
+          },
+          "sizeOverLife": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "additionalProperties": false,
+              "type": "object",
+              "required": [
+                "t",
+                "value"
+              ],
+              "properties": {
+                "t": {
+                  "minimum": 0,
+                  "maximum": 1,
+                  "default": 0,
+                  "type": "number"
+                },
+                "value": {
+                  "minimum": -1000,
+                  "maximum": 1000,
+                  "default": 0,
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "alphaOverLife": {
+            "maxItems": 32,
+            "type": "array",
+            "items": {
+              "additionalProperties": false,
+              "type": "object",
+              "required": [
+                "t",
+                "value"
+              ],
+              "properties": {
+                "t": {
+                  "minimum": 0,
+                  "maximum": 1,
+                  "default": 0,
+                  "type": "number"
+                },
+                "value": {
+                  "minimum": -1000,
+                  "maximum": 1000,
+                  "default": 0,
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "collision": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "mode",
+              "restitution"
+            ],
+            "properties": {
+              "mode": {
+                "anyOf": [
+                  {
+                    "const": "none",
+                    "type": "string"
+                  },
+                  {
+                    "const": "bounce",
+                    "type": "string"
+                  },
+                  {
+                    "const": "stop",
+                    "type": "string"
+                  }
+                ]
+              },
+              "restitution": {
+                "minimum": 0,
+                "maximum": 1,
+                "default": 0,
+                "type": "number"
+              }
+            }
+          },
+          "color": {
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "type": "string"
+          },
+          "priority": {
+            "minimum": 0,
+            "maximum": 100,
+            "default": 50,
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}
