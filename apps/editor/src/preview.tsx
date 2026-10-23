@@ -3,7 +3,7 @@ import { Play, Pause, RotateCcw, StepForward, Bug } from "lucide-react";
 import { useStudio } from "./store";
 import { ContentRegistry } from "../../../packages/content-loader/src/registry";
 import { Simulation } from "../../../packages/simulation/src/simulation";
-import { GameView } from "../../../packages/presentation/src/game-view";
+import type { GameView } from "../../../packages/presentation/src/game-view";
 import { DEFAULT_SETTINGS } from "../../../packages/shared-types/src/index";
 import { animationFrame } from "../../../packages/presentation/src/animation";
 import { dropChance } from "../../../packages/simulation/src/rewards";
@@ -60,8 +60,10 @@ export function Workbench() {
   const changeId = useStudio((s) => s.previewVersion);
   contentRef.current = draft?.content;
   const runningRef = useRef(running);
+  const resetGeneration=useRef(0);
   runningRef.current = running;
-  const reset = () => {
+  const reset = async () => {
+    const generation=++resetGeneration.current;
     view.current?.dispose();
     view.current = undefined;
     sim.current = undefined;
@@ -92,6 +94,7 @@ export function Workbench() {
       }
       if (selection?.collection === "mutations")
         simulation.state.actors[0].mutations = [selection.id];
+      const {GameView}=await import('../../../packages/presentation/src/game-view');if(generation!==resetGeneration.current||!container.current)return;
       const game = new GameView({
         parent: container.current,
         registry,
@@ -122,6 +125,7 @@ export function Workbench() {
       }
     }, 1000 / 30);
     return () => {
+      resetGeneration.current++;
       clearInterval(timer);
       view.current?.dispose();
     };

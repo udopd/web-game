@@ -10,6 +10,7 @@ import {
   collectionSchemas,
 } from "../packages/content-schemas/src/definitions";
 import { assertContent } from "../packages/content-schemas/src/validate";
+import {animateContent} from './animate-content';
 const content = Object.fromEntries(
   Object.keys(definitions).map((k) => [
     k,
@@ -863,6 +864,7 @@ add("unlocks", {
   permanent: true,
 });
 const clean = JSON.parse(JSON.stringify(content));
+await animateContent(clean);
 assertContent(clean);
 for (const [key, path] of Object.entries(CONTENT_PATHS)) {
   const file = "content/base-game/" + path;

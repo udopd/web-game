@@ -25,7 +25,7 @@ const headers = (role: "editor" | "player" = "editor") => ({
   "x-csrf-token": role === "editor" ? editorCsrf : playerCsrf,
 });
 beforeAll(async () => {
-  server = await createApp({ logger: false });
+  server = await createApp({ logger: false, restoreRooms: false });
   await server.app.listen({ port: 0, host: "127.0.0.1" });
   port = (server.app.server.address() as { port: number }).port;
   const login = await server.app.inject({

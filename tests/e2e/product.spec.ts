@@ -31,7 +31,8 @@ test("public game: registration, room, authoritative play, settings persistence"
   await page.keyboard.down("d");
   await page.waitForTimeout(700);
   await page.keyboard.up("d");
-  await page.screenshot({ path: "docs/qa/game.png", fullPage: true });
+  await expect(page.getByRole('alert')).toHaveCount(0);
+  await page.screenshot({ path: `docs/qa/game-${Date.now()}.png`, fullPage: true });
   await page.getByRole("button", { name: "Настройки", exact: true }).click();
   await page.getByRole('combobox',{name:'Частицы',exact:true}).selectOption('low');
   await page.getByLabel("Закрыть настройки").click();

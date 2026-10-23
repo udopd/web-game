@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "tsx watch apps/server/src/main.ts",
     "build": "npm run generate && tsc --noEmit && vite build --config apps/game-client/vite.config.ts && vite build --config apps/editor/vite.config.ts",
-    "generate": "prisma generate && tsx scripts/generate-extension-registry.ts",
+    "generate": "prisma generate && tsx scripts/generate-extension-registry.ts && tsx scripts/generate-validators.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:integration": "vitest run tests/integration",
@@ -24,7 +24,7 @@
     "db:seed": "tsx scripts/seed.ts",
     "start": "tsx apps/server/src/main.ts",
     "requirements": "node scripts/requirements.mjs",
-    "mutation:generate-registry": "tsx scripts/generate-extension-registry.ts",
+    "mutation:generate-registry": "tsx scripts/generate-extension-registry.ts && tsx scripts/generate-validators.ts",
     "mutation:create": "tsx scripts/mutation-create.ts"
   },
   "dependencies": {

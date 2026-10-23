@@ -20,6 +20,7 @@ export type GameViewOptions = {
 };
 /** A presentation-only Phaser scene. Both the live client and editor feed the same snapshots. */
 export class GameView {
+  private frameKeys=new Map<string,string>();
   private keys = new Set<string>();
   private keyDown = (e: KeyboardEvent) => {
     this.keys.add(e.code);
@@ -56,6 +57,7 @@ export class GameView {
       options.localId,
     );
     this.router.settings(this.settings);
+    this.router.onError=options.error;
     const view = this;
     window.addEventListener("keydown", this.keyDown);
     window.addEventListener("keyup", this.keyUp);
@@ -196,7 +198,7 @@ export class GameView {
       const tileDefs = new Map(palette.tiles.map((t) => [t.id, t]));
       for (let k = 0; k < map.tiles.length; k++) {
         const tile = tileDefs.get(map.tiles[k])!,
-          def = registry.get("sprites", tile.spriteId);
+          def = registry.get("sprites", map.tileSprites?.[k] ?? tile.spriteId);
         this.tiles.push(
           scene.add
             .image(
@@ -286,12 +288,12 @@ export class GameView {
           a.definitionId,
         ),
         set = d.animationSet,
-        anim = set[a.state as keyof typeof set] ?? set.idle,
-        frame = animationFrame(
-          registry.get("animations", anim),
-          ((state.tick - a.stateTick) * 1000) / 30 +
-            Math.min(70, performance.now() - this.receivedAt),
-        ).frame;
+        override=this.router.animationOverrides.get(a.id);
+      if(override&&override.expires<=state.tick)this.router.animationOverrides.delete(a.id);
+      const anim=override&&override.expires>state.tick?override.id:set[a.state as keyof typeof set]??set.idle;
+      const clip=registry.get('animations',anim),elapsed=((state.tick-(override&&override.expires>state.tick?override.tick:a.stateTick))*1000)/30+Math.min(70,performance.now()-this.receivedAt),sample=animationFrame(clip,elapsed),frame=sample.frame;
+      const frameKey=`${anim}:${sample.index}:${clip.loop?Math.floor(elapsed/clip.frames.reduce((n,f)=>n+f.durationMs,0)):0}`;
+      if(this.frameKeys.get(a.id)!==frameKey){this.frameKeys.set(a.id,frameKey);for(const action of frame.events)this.router.play(action,{actorId:a.id,position:{x:a.x,y:a.y},tick:state.tick},local??map.spawn);}
       this.visual(
         a.id,
         frame.spriteId,
@@ -344,7 +346,7 @@ export class GameView {
       g.lineStyle(b.width, parseInt(b.color.slice(1), 16));
       g.lineBetween(b.from.x, b.from.y, b.to.x, b.to.y);
     }
-    this.router.particles.step(dt);
+    this.router.particles.step(dt,(x,y)=>{const tx=Math.floor(x/map.tileSize),ty=Math.floor(y/map.tileSize);return tx<0||ty<0||tx>=map.width||ty>=map.height||map.solid[ty*map.width+tx];});
     for (const p of this.router.particles.pool)
       if (p.active)
         this.visual(
@@ -402,6 +404,7 @@ export class GameView {
     this.router.dispose();
     this.game.destroy(true);
     this.images.clear();
+    this.frameKeys.clear();
     this.tiles = [];
   }
 }

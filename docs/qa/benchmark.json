@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-22T23:09:26.310Z",
+  "node": "v24.18.0",
+  "platform": "win32",
+  "arch": "x64",
+  "cpu": "Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz",
+  "generation": {
+    "samples": 500,
+    "p50Ms": 0.8940999999999804,
+    "p95Ms": 2.542199999999866,
+    "p99Ms": 4.814300000000003,
+    "maxMs": 10.88399999999956,
+    "failures": []
+  },
+  "simulation": [
+    {
+      "level": "green_edge",
+      "actors": 12,
+      "ticks": 1500,
+      "samples": 1200,
+      "p50Ms": 0.05430000000023938,
+      "p95Ms": 0.5686000000000604,
+      "p99Ms": 0.9636000000000422,
+      "maxMs": 4.182099999999991
+    },
+    {
+      "level": "rootways",
+      "actors": 12,
+      "ticks": 1500,
+      "samples": 1200,
+      "p50Ms": 0.03960000000006403,
+      "p95Ms": 0.5619999999998981,
+      "p99Ms": 0.8981999999996333,
+      "maxMs": 1.2427999999999884
+    },
+    {
+      "level": "secret_cache",
+      "actors": 12,
+      "ticks": 1500,
+      "samples": 1200,
+      "p50Ms": 0.03719999999975698,
+      "p95Ms": 0.5295999999998457,
+      "p99Ms": 0.863800000000083,
+      "maxMs": 2.535699999999906
+    },
+    {
+      "level": "rust_gate",
+      "actors": 12,
+      "ticks": 1500,
+      "samples": 1200,
+      "p50Ms": 0.046600000000125874,
+      "p95Ms": 1.3417999999996937,
+      "p99Ms": 3.8424999999997453,
+      "maxMs": 21.374899999999798
+    },
+    {
+      "level": "core_chamber",
+      "actors": 9,
+      "ticks": 1500,
+      "samples": 1200,
+      "p50Ms": 0.029899999999997817,
+      "p95Ms": 0.4554000000002816,
+      "p99Ms": 1.3818999999998596,
+      "maxMs": 4.4050000000002
+    }
+  ],
+  "note": "Local synthetic measurement; 4 stationary high-health players, 300 warmup + 1200 measured ticks per level. No browser rendering, network or database included."
+}

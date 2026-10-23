@@ -5,6 +5,7 @@ export class AudioSystem {
   readonly sfx = this.context.createGain();
   readonly music = this.context.createGain();
   private buffers = new Map<string, AudioBuffer>();
+  private loading = new Map<string,Promise<AudioBuffer>>();
   private voices: {
     id: string;
     source: AudioBufferSourceNode;
@@ -24,13 +25,9 @@ export class AudioSystem {
       await this.context.resume();
   }
   async buffer(path: string) {
-    let b = this.buffers.get(path);
+    const b = this.buffers.get(path);
     if (b) return b;
-    const r = await fetch(this.assetUrl(path));
-    if (!r.ok) throw new Error("Audio resource unavailable");
-    b = await this.context.decodeAudioData(await r.arrayBuffer());
-    this.buffers.set(path, b);
-    return b;
+    let pending=this.loading.get(path);if(!pending){pending=(async()=>{const response=await fetch(this.assetUrl(path));if(!response.ok)throw new Error('Audio resource unavailable');const buffer=await this.context.decodeAudioData(await response.arrayBuffer());if(!this.disposed)this.buffers.set(path,buffer);return buffer;})();this.loading.set(path,pending);pending.finally(()=>this.loading.delete(path)).catch(()=>{});}return pending;
   }
   settings(settings: UserSettings) {
     this.sfx.gain.value = settings.muteSfx
@@ -92,6 +89,7 @@ export class AudioSystem {
   }
 }
 export class MusicDirector {
+  private requested?:string;
   private current?: {
     id: string;
     source: AudioBufferSourceNode;
@@ -100,10 +98,11 @@ export class MusicDirector {
   private generation = 0;
   constructor(private audio: AudioSystem) {}
   async transition(id: string) {
-    if (this.current?.id === id) return;
+    if (this.current?.id === id||this.requested===id) return;
+    this.requested=id;
     const generation = ++this.generation,
-      def = this.audio.registry.get("music", id),
-      buffer = await this.audio.buffer(def.source);
+      def = this.audio.registry.get("music", id);
+    let buffer:AudioBuffer;try{buffer=await this.audio.buffer(def.source);}catch(e){if(generation===this.generation)this.requested=undefined;throw e;}
     if (generation !== this.generation) return;
     const ctx = this.audio.context;
     if (ctx.state === "closed") return;
@@ -138,6 +137,7 @@ export class MusicDirector {
   }
   stop() {
     this.generation++;
+    this.requested=undefined;
     this.current?.source.stop();
     this.current = undefined;
   }

@@ -3,14 +3,15 @@
   "items": [
     {
       "id": "beetle_enemy",
-      "name": "beetle_enemy",
+      "name": "Медный жук",
       "tags": [],
-      "spriteId": "beetle",
+      "spriteId": "animated_beetle_0",
       "animationSet": {
-        "idle": "beetle_enemy_idle",
-        "run": "beetle_enemy_run",
-        "hurt": "beetle_enemy_hurt",
-        "death": "beetle_enemy_death"
+        "idle": "animated_beetle_idle",
+        "run": "animated_beetle_run",
+        "hurt": "animated_beetle_hurt",
+        "death": "animated_beetle_death",
+        "windup": "animated_beetle_windup"
       },
       "collision": {
         "shape": "circle",
@@ -39,14 +40,15 @@
     },
     {
       "id": "spore_enemy",
-      "name": "spore_enemy",
+      "name": "Корневой спорник",
       "tags": [],
-      "spriteId": "spore",
+      "spriteId": "animated_spore_0",
       "animationSet": {
-        "idle": "spore_enemy_idle",
-        "run": "spore_enemy_run",
-        "hurt": "spore_enemy_hurt",
-        "death": "spore_enemy_death"
+        "idle": "animated_spore_idle",
+        "run": "animated_spore_run",
+        "hurt": "animated_spore_hurt",
+        "death": "animated_spore_death",
+        "windup": "animated_spore_windup"
       },
       "collision": {
         "shape": "circle",
@@ -75,14 +77,15 @@
     },
     {
       "id": "sentry_enemy",
-      "name": "sentry_enemy",
+      "name": "Ржавый часовой",
       "tags": [],
-      "spriteId": "sentry",
+      "spriteId": "animated_sentry_0",
       "animationSet": {
-        "idle": "sentry_enemy_idle",
-        "run": "sentry_enemy_run",
-        "hurt": "sentry_enemy_hurt",
-        "death": "sentry_enemy_death"
+        "idle": "animated_sentry_idle",
+        "run": "animated_sentry_run",
+        "hurt": "animated_sentry_hurt",
+        "death": "animated_sentry_death",
+        "windup": "animated_sentry_windup"
       },
       "collision": {
         "shape": "circle",

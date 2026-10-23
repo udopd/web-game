@@ -137,7 +137,8 @@ export function installAuth(app: FastifyInstance) {
   app.addHook("onRequest", async (req, reply) => {
     reply.header("X-Content-Type-Options", "nosniff");
     reply.header("Referrer-Policy", "same-origin");
-    const path = req.url.split("?")[0];
+    reply.header('Content-Security-Policy',"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' blob: data:; media-src 'self' blob:; connect-src 'self' blob:; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'none'; object-src 'none'");
+    let path:string;try{path=decodeURIComponent(req.url.split('?')[0]);}catch{throw new HttpError(400,'Invalid URL encoding');}
     if (path.startsWith("/api/editor/") && path !== "/api/editor/auth/login")
       await requireSession(req, "editor");
     if (path.startsWith("/editor") && path !== "/editor/login") {

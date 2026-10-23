@@ -5,6 +5,7 @@ import type {
 } from "../../shared-types/src/index";
 import type { WorldMap } from "../../procedural-generation/src/index";
 export type Actor = {
+  departed?:boolean;
   id: string;
   definitionId: string;
   kind: "player" | "enemy" | "boss";

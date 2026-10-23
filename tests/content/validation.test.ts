@@ -66,7 +66,7 @@ describe("Content boundary", () => {
     );
     const restored = await readPack(pack.archive);
     expect(restored.content).toEqual(content);
-    expect(restored.manifest.files).toHaveLength(41);
+    expect(restored.manifest.files).toHaveLength(42);
     const corrupted = Buffer.from(pack.archive);
     corrupted[Math.floor(corrupted.length / 2)] ^= 0xff;
     await expect(readPack(corrupted)).rejects.toThrow();

@@ -38,10 +38,10 @@ export class RoomManager {
     readonly content: ContentService,
     private report: (error: unknown) => void = console.error,
   ) {}
-  async init() {
-    for (const row of await db.room.findMany({
-      where: { status: { in: ["lobby", "running"] } },
-    })) {
+  async init(restore = true) {
+    for (const row of restore ? await db.room.findMany({
+      where: { status: { in: ["lobby", "running", "victory", "defeat"] } },
+    }) : []) {
       const view: RoomView = {
         ...row,
         status: row.status as RoomView["status"],
@@ -99,6 +99,9 @@ export class RoomManager {
     return live;
   }
   async create(uid: string, campaignId: string) {
+    return this.exclusive(`user:${uid}`,()=>this.createForUser(uid,campaignId));
+  }
+  private async createForUser(uid:string,campaignId:string){
     if (
       [...this.rooms.values()].some(
         (r) =>
@@ -140,7 +143,7 @@ export class RoomManager {
     return view;
   }
   async join(id: string, uid: string) {
-    return this.exclusive(id, async () => {
+    return this.exclusive(`user:${uid}`,()=>this.exclusive(id, async () => {
       const live = this.get(id);
       if (live.view.members.some((m) => m.uid === uid)) return live.view;
       if (live.view.status !== "lobby" || live.view.members.length >= 4)
@@ -166,7 +169,7 @@ export class RoomManager {
       });
       await this.saveRoom(live);
       return live.view;
-    });
+    }));
   }
   async ready(id: string, uid: string, ready: boolean, characterId: string) {
     return this.exclusive(id, async () => {
@@ -254,6 +257,7 @@ export class RoomManager {
         (live.view.ownerId !== uid || live.view.status !== "lobby")
       )
         throw new HttpError(403, "Only lobby owner can remove another player");
+      if(live.simulation){await this.checkpoint(live);const actor=live.simulation.state.actors.find(a=>a.id===target);if(actor){actor.hp=0;actor.departed=true;actor.state='death';actor.stateTick=live.simulation.state.tick;}await db.participant.update({where:{runId_uid:{runId:live.simulation.state.runId,uid:target}},data:{canResume:false}});}
       const socket = live.sockets.get(target);
       live.sockets.delete(target);
       socket?.close(1000, "Left room");
@@ -279,6 +283,14 @@ export class RoomManager {
           ["lobby", "running"].includes(r.view.status),
       )
       .map((r) => r.view);
+  }
+  currentFor(uid: string) {
+    const active = this.activeFor(uid);
+    if (active.length) return active;
+    // Keep an unacknowledged result available after refresh. Explicit leave closes it.
+    return [...this.rooms.values()].reverse().filter(r =>
+      r.view.members.some(m => m.uid === uid) && ["victory", "defeat"].includes(r.view.status)
+    ).slice(0, 1).map(r => r.view);
   }
   attach(id: string, uid: string, socket: WebSocket, sessionHash: string) {
     const live = this.member(id, uid);
@@ -445,6 +457,7 @@ export class RoomManager {
               user = await tx.user.findUniqueOrThrow({
                 where: { uid: actor.id },
               });
+            if(!part.canResume||actor.departed)continue;
             const facts = mergeFacts(
               user.facts as unknown as ProgressFacts,
               state.progress,

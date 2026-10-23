@@ -53,6 +53,7 @@ export class ParticleSystem {
     const cap =
       this.quality === "high" ? 1000 : this.quality === "medium" ? 400 : 120;
     if (
+      this.pool.filter(p=>p.active).length>=cap ||
       this.pool.filter((p) => p.active && p.effectId === def.id).length >=
       def.emission.maxAlive
     ) {
@@ -109,7 +110,7 @@ export class ParticleSystem {
       effectId: def.id,
     });
   }
-  step(delta: number) {
+  step(delta: number, blocked?: (x:number,y:number)=>boolean) {
     const dt = Math.min(0.05, Math.max(0, delta));
     for (const e of this.emitters) {
       const def = this.registry.get("particles", e.effectId);
@@ -140,8 +141,10 @@ export class ParticleSystem {
       p.vy =
         (p.vy + (motion.acceleration.y + motion.gravity.y) * dt) *
         Math.exp(-motion.dragPerSecond * dt);
-      p.x += p.vx * dt;
-      p.y += p.vy * dt;
+      const nextX=p.x+p.vx*dt,nextY=p.y+p.vy*dt;
+      if(blocked&&def.collision.mode!=='none'&&blocked(nextX,nextY)){
+        if(def.collision.mode==='stop'){p.vx=0;p.vy=0;}else{const hitX=blocked(nextX,p.y),hitY=blocked(p.x,nextY);if(hitX||!hitY)p.vx=-p.vx*def.collision.restitution;if(hitY||!hitX)p.vy=-p.vy*def.collision.restitution;}
+      }else{p.x=nextX;p.y=nextY;}
       p.rotation = motion.alignToVelocity
         ? (Math.atan2(p.vy, p.vx) * 180) / Math.PI
         : p.rotation + p.spin * dt;

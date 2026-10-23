@@ -1,0 +1,42 @@
+name: Verify Emberfall
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: node scripts/setup-env.mjs
+      - run: docker compose up -d --wait postgres storage
+      - run: npm run build
+      - run: npm run db:migrate
+      - run: npm run db:seed
+      - run: npm run content:validate
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      - name: Start application
+        run: |
+          npm start > /tmp/emberfall-server.log 2>&1 &
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://localhost:3100/health; then exit 0; fi
+            sleep 1
+          done
+          exit 1
+      - run: npm run test:e2e
+        env:
+          PLAYWRIGHT_CHANNEL: chromium
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-results
+          path: |
+            playwright-report/
+            test-results/
+            docs/qa/
+      - if: always()
+        run: docker compose stop

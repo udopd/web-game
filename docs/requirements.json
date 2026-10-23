@@ -1909,9 +1909,9 @@
     "section": "3.5. Рекомендуемый стек",
     "description": "- WebSocket для игрового взаимодействия;",
     "subsystem": "integration",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "apps/server/src/rooms.ts",
+    "test": "tests/integration/coop.test.ts",
+    "status": "verified"
   },
   {
     "id": "REQ-0175",
@@ -2316,9 +2316,9 @@
     "section": "4. Data-Driven Architecture",
     "description": "Создай систему immutable content packs.",
     "subsystem": "integration",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "apps/server/src/content-service.ts; packages/content-loader/src/packs.ts",
+    "test": "tests/content/validation.test.ts",
+    "status": "partial"
   },
   {
     "id": "REQ-0212",
@@ -2327,9 +2327,9 @@
     "section": "4. Data-Driven Architecture",
     "description": "Активный забег должен использовать зафиксированную версию контента.",
     "subsystem": "integration",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "apps/server/src/rooms.ts; apps/game-client/src/main.tsx",
+    "test": "tests/integration/coop.test.ts; tests/e2e/coop.spec.ts",
+    "status": "partial"
   },
   {
     "id": "REQ-0213",
@@ -3779,9 +3779,9 @@
     "section": "7. Custom Mutation SDK",
     "description": "- детерминированные вычисления;",
     "subsystem": "integration",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "packages/simulation/src/simulation.ts",
+    "test": "tests/simulation/replay.test.ts",
+    "status": "verified"
   },
   {
     "id": "REQ-0345",
@@ -4186,9 +4186,9 @@
     "section": "8. Игровой процесс",
     "description": "- seed;",
     "subsystem": "integration",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "packages/procedural-generation/src/index.ts",
+    "test": "tests/simulation/replay.test.ts; scripts/benchmark.ts",
+    "status": "verified"
   },
   {
     "id": "REQ-0382",
@@ -4395,9 +4395,9 @@
     "section": "9. Мультиплеер",
     "description": "Игра должна поддерживать кооператив на 2–4 игроков.",
     "subsystem": "integration",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "apps/server/src/rooms.ts; apps/game-client/src/main.tsx",
+    "test": "tests/integration/coop.test.ts; tests/e2e/coop.spec.ts",
+    "status": "verified"
   },
   {
     "id": "REQ-0401",
@@ -4417,9 +4417,9 @@
     "section": "9. Мультиплеер",
     "description": "- WebSocket;",
     "subsystem": "integration",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "apps/server/src/rooms.ts",
+    "test": "tests/integration/coop.test.ts",
+    "status": "verified"
   },
   {
     "id": "REQ-0403",
@@ -5011,9 +5011,9 @@
     "section": "11. Безопасность редактора",
     "description": "- HttpOnly Secure cookies;",
     "subsystem": "integration",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "apps/server/src/auth.ts",
+    "test": "tests/integration/server.test.ts; HTTPS E2E pending",
+    "status": "partial"
   },
   {
     "id": "REQ-0457",
@@ -5033,9 +5033,9 @@
     "section": "11. Безопасность редактора",
     "description": "- защиту от CSRF;",
     "subsystem": "integration",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "apps/server/src/auth.ts",
+    "test": "tests/integration/server.test.ts",
+    "status": "verified"
   },
   {
     "id": "REQ-0459",
@@ -10984,9 +10984,9 @@
     "section": "4.3. Оговорки по производительности",
     "description": "- Не отправлять каждый отдельный particle как сетевую сущность: передавать только событие создания эффекта с ID/позицией/seed.",
     "subsystem": "presentation/assets",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "apps/server/src/rooms.ts; packages/presentation/src/router.ts",
+    "test": "tests/integration/coop.test.ts",
+    "status": "partial"
   },
   {
     "id": "REQ-1000",
@@ -12414,9 +12414,9 @@
     "section": "3. Файлы и ответственность",
     "description": "- manifest.json перечисляет ресурсы и SHA-256, а не логику анимационных переходов.",
     "subsystem": "animation",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "packages/content-loader/src/packs.ts",
+    "test": "tests/content/validation.test.ts",
+    "status": "verified"
   },
   {
     "id": "REQ-1130",
@@ -13195,9 +13195,9 @@
     "section": "0. Нерушимые требования",
     "description": "6. Любой эффект детерминирован для пары «начальное состояние + версия кода/контента + seed RNG + упорядоченный поток игровых команд».",
     "subsystem": "effects/sdk",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "packages/simulation/src/simulation.ts; packages/effect-engine/src/index.ts",
+    "test": "tests/simulation/replay.test.ts; tests/simulation/effects.test.ts",
+    "status": "partial"
   },
   {
     "id": "REQ-1201",
@@ -14075,9 +14075,9 @@
     "section": "Шаг 8. Тестирование (обязательный минимум)",
     "description": "- [ ] Для фиксированного seed и входных команд результат совпадает побитово на поддерживаемой платформе/реализации симуляции.",
     "subsystem": "effects/sdk",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "packages/simulation/src/simulation.ts",
+    "test": "tests/simulation/replay.test.ts",
+    "status": "verified"
   },
   {
     "id": "REQ-1281",
@@ -14702,9 +14702,9 @@
     "section": "2.2. Поток аутентификации",
     "description": "- Проверять переданный токен в постоянное время (например, SHA-256 обоих значений + timingSafeEqual, при равной фиксированной длине digest).",
     "subsystem": "server/security",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "apps/server/src/auth.ts",
+    "test": "tests/integration/server.test.ts; code review",
+    "status": "verified"
   },
   {
     "id": "REQ-1338",
@@ -16561,9 +16561,9 @@
     "section": "3.1. Базовый layout для desktop (например, ≥1280 CSS px)",
     "description": "Все 4 основных зоны dockable: левый браузер, центр, правый инспектор, нижняя утилитарная панель. Не делать фиксированного расположения, которое нельзя изменить.",
     "subsystem": "editor",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "apps/editor/src/main.tsx",
+    "test": "tests/e2e/product.spec.ts; manual layout inspection",
+    "status": "partial"
   },
   {
     "id": "REQ-1507",
@@ -19674,9 +19674,9 @@
     "section": "9. Тесты и Definition of Done",
     "description": "- [ ] Все новые JSON валидируются, ссылки существуют, экспортируются в ZIP, manifest и SHA-256 обновляются.",
     "subsystem": "world/campaign",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "packages/content-schemas/src/validate.ts; packages/content-loader/src/packs.ts",
+    "test": "tests/content/validation.test.ts",
+    "status": "verified"
   },
   {
     "id": "REQ-1790",
@@ -20576,9 +20576,9 @@
     "section": "3.3. Пример `world/decoration-spawn-tables.json`",
     "description": "- Один и тот же seed + версия контента и генератора дают ту же карту и те же декорации. RNG дропа и RNG косметики — независимые потоки.",
     "subsystem": "world/rewards",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "packages/game-core/src/math.ts; packages/procedural-generation/src/index.ts",
+    "test": "tests/simulation/replay.test.ts",
+    "status": "verified"
   },
   {
     "id": "REQ-1872",
@@ -21742,9 +21742,9 @@
     "section": "12. Тесты и критерии приемки (Definition of Done)",
     "description": "- [ ] Процедурная генерация размещает декорации по seed, не перекрывает обязательный путь и ограничивает число попыток.",
     "subsystem": "world/rewards",
-    "implementation": "—",
-    "test": "—",
-    "status": "planned"
+    "implementation": "packages/procedural-generation/src/index.ts",
+    "test": "tests/simulation/replay.test.ts; scripts/benchmark.ts",
+    "status": "partial"
   },
   {
     "id": "REQ-1978",

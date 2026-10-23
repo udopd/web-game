@@ -7,6 +7,7 @@ import type {
 import { conditionMatches } from "../../effect-engine/src/index";
 import { AudioSystem, MusicDirector } from "./audio";
 import { ParticleSystem } from "./particles";
+import type {Definition} from '../../content-schemas/src/definitions';
 export class CameraEffectSystem {
   private effects: { id: string; age: number }[] = [];
   strength = 0.5;
@@ -43,6 +44,8 @@ export class PresentationRouter {
   readonly music: MusicDirector;
   readonly particles: ParticleSystem;
   readonly camera: CameraEffectSystem;
+  readonly animationOverrides=new Map<string,{id:string;tick:number;expires:number}>();
+  onError?:(message:string)=>void;
   private seen = new Set<string>();
   private last = new Map<string, number>();
   constructor(
@@ -79,35 +82,23 @@ export class PresentationRouter {
       const now = (event.tick * 1000) / 30;
       if (now - (this.last.get(binding.id) ?? -Infinity) < binding.cooldownMs)
         continue;
-      const random =
-        ((event.tick * 1664525 + event.eventId.length * 1013904223) >>> 0) /
-        4294967296;
+      let hash=2166136261;for(const c of `${event.eventId}:${binding.id}`)hash=Math.imul(hash^c.charCodeAt(0),16777619);const random=(hash>>>0)/4294967296;
       if (random > binding.probability) continue;
       this.last.set(binding.id, now);
-      for (const action of binding.actions) {
-        if (action.type === "play_sfx")
-          void this.audio
-            .play(action.soundId, event.position, listener)
-            .catch(() => {});
-        if (action.type === "spawn_particles")
-          this.particles.play(
-            action.particleEffectId,
-            event.position,
-            event.tick + this.seen.size,
-          );
-        if (
-          action.type === "camera_effect" &&
-          (action.scope !== "local_actor" || event.actorId === this.localId)
-        )
-          this.camera.play(action.cameraEffectId);
-        if (action.type === "switch_music")
-          void this.music.transition(action.musicId).catch(() => {});
-      }
+      for (const action of binding.actions)this.play(action,event,listener);
     }
+  }
+  play(action:Definition<'eventBindings'>['actions'][number],event:Pick<GameEvent,'actorId'|'position'|'tick'>,listener:Vec2){
+    if(action.type==='play_sfx')void this.audio.play(action.soundId,event.position,listener).catch(e=>this.onError?.(e.message));
+    if(action.type==='spawn_particles')this.particles.play(action.particleEffectId,event.position,event.tick+this.seen.size);
+    if(action.type==='camera_effect'){const range=this.registry.get('cameraEffects',action.cameraEffectId).maxDistance;if(action.scope==='local_actor'&&event.actorId!==this.localId)return;if(action.scope==='nearby_players'&&Math.hypot(event.position.x-listener.x,event.position.y-listener.y)>range)return;this.camera.play(action.cameraEffectId);}
+    if(action.type==='switch_music')void this.music.transition(action.musicId).catch(e=>this.onError?.(e.message));
+    if(action.type==='play_animation'){const clip=this.registry.get('animations',action.animationId);this.animationOverrides.set(event.actorId,{id:clip.id,tick:event.tick,expires:event.tick+Math.ceil(clip.frames.reduce((n,f)=>n+f.durationMs,0)*30/1000)});if(this.animationOverrides.size>512)this.animationOverrides.delete(this.animationOverrides.keys().next().value!);}
   }
   dispose() {
     this.music.stop();
     this.audio.dispose();
     this.particles.dispose();
+    this.animationOverrides.clear();
   }
 }

@@ -1,6 +1,8 @@
 import { ContentRegistry } from "../../content-loader/src/registry";
 import { Rng, distanceSq } from "../../game-core/src/math";
 import type { Vec2 } from "../../shared-types/src/index";
+import type { Definition } from "../../content-schemas/src/definitions";
+import { tileAppearance } from "./tile-appearance";
 export type Placement = {
   id: string;
   kind: "enemy" | "boss" | "prop" | "chest";
@@ -12,6 +14,7 @@ export type WorldMap = {
   height: number;
   tileSize: number;
   tiles: string[];
+  tileSprites?: (string | null)[];
   solid: boolean[];
   projectileBlocking: boolean[];
   spawn: Vec2;
@@ -23,11 +26,15 @@ export function generateLevel(
   registry: ContentRegistry,
   levelId: string,
   seed: number,
+  options: { depth?: number; difficultyScale?: number } = {},
 ): WorldMap {
   const level = registry.get("levels", levelId),
     biome = registry.get("biomes", level.biomeId),
     palette = registry.get("tilePalettes", biome.paletteId),
     rng = new Rng(seed);
+  const depth = options.depth ?? 1;
+  const scale = Math.max(.1, Math.min(20, options.difficultyScale ?? 1));
+  const zones: Definition<'tilemaps'>['spawnZones'] = [];
   let width = 0,
     height = 0,
     tiles: string[] = [],
@@ -41,6 +48,7 @@ export function generateLevel(
     const map = registry.get("tilemaps", level.tilemapId!);
     width = map.width;
     height = map.height;
+    zones.push(...map.spawnZones.map(zone => ({...zone})));
     const tileDefs = new Map(palette.tiles.map((x) => [x.id, x]));
     for (let y = 0; y < height; y++)
       for (let x = 0; x < width; x++) {
@@ -112,7 +120,9 @@ export function generateLevel(
     };
     if (level.generationMode === "hybrid")
       for (const [index, id] of rule.requiredRoomTemplateIds.entries()) {
-        const template = registry.get("roomTemplates", id),
+        const template = registry.get("roomTemplates", id);
+        if (depth < template.minDepth || depth > template.maxDepth) continue;
+        const
           map = registry.get("tilemaps", template.tilemapId),
           center = centers[Math.min(index, centers.length - 1)];
         const ox = Math.max(
@@ -129,6 +139,7 @@ export function generateLevel(
               center.y - Math.floor(map.height / 2),
             ),
           );
+        zones.push(...map.spawnZones.map(zone => ({...zone,id:`template-${index}-${zone.id}`,x:zone.x+ox,y:zone.y+oy})));
         for (const layer of map.layers)
           for (let y = 0; y < map.height; y++)
             for (let x = 0; x < map.width; x++) {
@@ -195,26 +206,33 @@ export function generateLevel(
     distanceSq(p, spawn) > 64 ** 2 &&
     distanceSq(p, exit) > 32 ** 2 &&
     placements.every((e) => distanceSq(e.position, p) > (r + 20) ** 2);
-  for (const [collection, id] of [
+  const tables = [
     ["enemySpawnTables", level.enemySpawnTableId],
     ["decorationSpawnTables", level.decorationSpawnTableId],
     ["chestSpawnTables", level.chestSpawnTableId],
-  ] as const) {
-    const table = registry.get(collection, id);
+  ] as const;
+  const jobs: {table:Definition<'enemySpawnTables'>; zone?:Definition<'tilemaps'>['spawnZones'][number]}[] =
+    level.generationMode === 'handcrafted' ? [] : tables.map(([collection,id])=>({table:registry.get(collection,id)}));
+  for (const zone of zones) {
+    const candidates = tables.flatMap(([collection])=>registry.all(collection)).filter(table=>table.id===zone.tableId);
+    if(candidates.length!==1)throw new Error(`Unknown or ambiguous spawn table ${zone.tableId}`);
+    jobs.push({table:candidates[0],zone});
+  }
+  let budget = level.difficultyBudget * scale;
+  for (const [jobIndex,{table,zone}] of jobs.entries()) {
     if (rng.next() > table.chance || !table.entries.length) continue;
-    const target = rng.int(table.min, table.max);
-    let count = 0,
-      budget = level.difficultyBudget;
+    const target = Math.min(500, Math.round(rng.int(table.min, table.max) * (table.kind==='enemy'?scale:1)));
+    let count = 0;
     for (
       let attempt = 0;
-      attempt < table.attempts && count < target;
+      attempt < table.attempts && count < target && placements.length < 500;
       attempt++
     ) {
       const entry = rng.weighted(table.entries, (x) => x.weight);
       if (rng.next() > entry.probability) continue;
       const p = {
-        x: (rng.int(1, width - 2) + 0.5) * size,
-        y: (rng.int(1, height - 2) + 0.5) * size,
+        x: (rng.int(zone?.x ?? 1, zone ? zone.x+zone.width-1 : width - 2) + 0.5) * size,
+        y: (rng.int(zone?.y ?? 1, zone ? zone.y+zone.height-1 : height - 2) + 0.5) * size,
       };
       if (distanceSq(p, spawn) < table.minDistance ** 2) continue;
       const def =
@@ -228,6 +246,7 @@ export function generateLevel(
           ? def.collision.radius
           : Math.max(def.collision.width, def.collision.height) / 2;
       if (!free(p, radius)) continue;
+      if(!reachable(map,spawn,p))continue;
       if (table.kind === "enemy") {
         const cost = registry.get(
           "enemies",
@@ -248,7 +267,7 @@ export function generateLevel(
         if (!ok) continue;
       }
       placements.push({
-        id: `spawn-${table.kind}-${count}`,
+        id: `spawn-${jobIndex}-${table.kind}-${count}`,
         kind: table.kind,
         definitionId: entry.definitionId,
         position: p,
@@ -277,6 +296,7 @@ export function generateLevel(
       position: cells[0],
     });
   }
+  map.tileSprites = tileAppearance(palette, tiles, width, height, seed ^ 0x1f123bb5);
   return map;
 }
 export function cellBlocked(

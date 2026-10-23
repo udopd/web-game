@@ -1,4 +1,4 @@
-import Ajv from "ajv";
+import validators from "../../content-schemas/src/generated/validators.cjs";
 import { ContentRegistry } from "../../content-loader/src/registry";
 import {
   Rng,
@@ -37,9 +37,8 @@ import {
   type WorldState,
   type Projectile,
 } from "./types";
-const ajv = new Ajv({ strict: false });
 const extensionValidators = new Map(
-  extensions.map((x) => [x.meta.id, ajv.compile(x.params)]),
+  extensions.map((x) => [x.meta.id, validators[x.meta.id]]),
 );
 export class Simulation {
   state: WorldState;
@@ -98,7 +97,7 @@ export class Simulation {
       levelId: node.levelId,
       depth: 1,
       status: "running",
-      map: generateLevel(registry, node.levelId, args.seed),
+      map: generateLevel(registry, node.levelId, args.seed, { depth: 1, difficultyScale: node.difficultyScale }),
       actors: [],
       projectiles: [],
       props: [],
@@ -949,26 +948,25 @@ export class Simulation {
       this.state.progress.bosses.push(target.definitionId);
     if (owner?.kind === "player") {
       owner.kills++;
-      owner.xp += def.xpReward;
-      while (owner.xp >= owner.level * 25) {
-        owner.xp -= owner.level * 25;
-        owner.level++;
-        const available = this.registry
-          .all("mutations")
-          .filter(
-            (m) =>
-              owner.mutations.filter((id) => id === m.id).length < m.maxStacks,
-          );
-        const choices = [...available];
-        owner.mutationChoices = [];
-        while (choices.length && owner.mutationChoices.length < 3) {
-          const pick = this.loot.weighted(choices, (m) => m.weight);
-          owner.mutationChoices.push(pick.id);
-          choices.splice(choices.indexOf(pick), 1);
-        }
-      }
+      this.awardExperience(owner, def.xpReward);
     }
     this.drop(def.rewards, def.difficultyRating, target);
+  }
+  private awardExperience(owner: Actor, amount: number) {
+    owner.xp += amount;
+    while (owner.xp >= owner.level * 25) {
+      owner.xp -= owner.level * 25;
+      owner.level++;
+      const choices = this.registry.all("mutations").filter(m =>
+        owner.mutations.filter(id => id === m.id).length < m.maxStacks
+      );
+      owner.mutationChoices = [];
+      while (choices.length && owner.mutationChoices.length < 3) {
+        const pick = this.loot.weighted(choices, m => m.weight);
+        owner.mutationChoices.push(pick.id);
+        choices.splice(choices.indexOf(pick), 1);
+      }
+    }
   }
   private damageProp(
     ownerId: string,
@@ -1090,7 +1088,7 @@ export class Simulation {
         const def = this.registry.get("pickups", item.definitionId);
         if (def.kind === "heal") p.hp = Math.min(p.maxHp, p.hp + def.amount);
         if (def.kind === "ammo") p.reserve += def.amount;
-        if (def.kind === "xp") p.xp += def.amount;
+        if (def.kind === "xp") this.awardExperience(p, def.amount);
       } else if (item.kind === "weapon") {
         if (!p.weaponIds.includes(item.definitionId)) {
           if (p.weaponIds.length < 5) p.weaponIds.push(item.definitionId);
@@ -1194,6 +1192,7 @@ export class Simulation {
       this.registry,
       this.state.levelId,
       this.state.seed + this.state.depth * 7919,
+      { depth: this.state.depth, difficultyScale: campaign.nodes.find(n=>n.nodeId===this.state.nodeId)!.difficultyScale },
     );
     this.state.projectiles = [];
     this.state.props = [];
@@ -1203,6 +1202,7 @@ export class Simulation {
     this.state.completed = false;
     this.state.actors = this.state.actors.filter((a) => a.kind === "player");
     for (const p of this.state.actors) {
+      if(p.departed)continue;
       p.x = this.state.map.spawn.x;
       p.y = this.state.map.spawn.y;
       p.hp = Math.max(p.hp, p.maxHp * 0.25);

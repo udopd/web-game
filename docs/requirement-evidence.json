@@ -1,0 +1,20 @@
+{
+  "REQ-0174": {"implementation":"apps/server/src/rooms.ts", "test":"tests/integration/coop.test.ts", "status":"verified"},
+  "REQ-0211": {"implementation":"apps/server/src/content-service.ts; packages/content-loader/src/packs.ts", "test":"tests/content/validation.test.ts", "status":"partial"},
+  "REQ-0212": {"implementation":"apps/server/src/rooms.ts; apps/game-client/src/main.tsx", "test":"tests/integration/coop.test.ts; tests/e2e/coop.spec.ts", "status":"partial"},
+  "REQ-0344": {"implementation":"packages/simulation/src/simulation.ts", "test":"tests/simulation/replay.test.ts", "status":"verified"},
+  "REQ-0381": {"implementation":"packages/procedural-generation/src/index.ts", "test":"tests/simulation/replay.test.ts; scripts/benchmark.ts", "status":"verified"},
+  "REQ-0400": {"implementation":"apps/server/src/rooms.ts; apps/game-client/src/main.tsx", "test":"tests/integration/coop.test.ts; tests/e2e/coop.spec.ts", "status":"verified"},
+  "REQ-0402": {"implementation":"apps/server/src/rooms.ts", "test":"tests/integration/coop.test.ts", "status":"verified"},
+  "REQ-0456": {"implementation":"apps/server/src/auth.ts", "test":"tests/integration/server.test.ts; HTTPS E2E pending", "status":"partial"},
+  "REQ-0458": {"implementation":"apps/server/src/auth.ts", "test":"tests/integration/server.test.ts", "status":"verified"},
+  "REQ-0999": {"implementation":"apps/server/src/rooms.ts; packages/presentation/src/router.ts", "test":"tests/integration/coop.test.ts", "status":"partial"},
+  "REQ-1129": {"implementation":"packages/content-loader/src/packs.ts", "test":"tests/content/validation.test.ts", "status":"verified"},
+  "REQ-1200": {"implementation":"packages/simulation/src/simulation.ts; packages/effect-engine/src/index.ts", "test":"tests/simulation/replay.test.ts; tests/simulation/effects.test.ts", "status":"partial"},
+  "REQ-1280": {"implementation":"packages/simulation/src/simulation.ts", "test":"tests/simulation/replay.test.ts", "status":"verified"},
+  "REQ-1337": {"implementation":"apps/server/src/auth.ts", "test":"tests/integration/server.test.ts; code review", "status":"verified"},
+  "REQ-1506": {"implementation":"apps/editor/src/main.tsx", "test":"tests/e2e/product.spec.ts; manual layout inspection", "status":"partial"},
+  "REQ-1789": {"implementation":"packages/content-schemas/src/validate.ts; packages/content-loader/src/packs.ts", "test":"tests/content/validation.test.ts", "status":"verified"},
+  "REQ-1871": {"implementation":"packages/game-core/src/math.ts; packages/procedural-generation/src/index.ts", "test":"tests/simulation/replay.test.ts", "status":"verified"},
+  "REQ-1977": {"implementation":"packages/procedural-generation/src/index.ts", "test":"tests/simulation/replay.test.ts; scripts/benchmark.ts", "status":"partial"}
+}

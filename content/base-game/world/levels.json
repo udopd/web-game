@@ -3,7 +3,7 @@
   "items": [
     {
       "id": "green_edge",
-      "name": "green_edge",
+      "name": "Мшистое предместье",
       "tags": [],
       "biomeId": "overgrowth",
       "generationMode": "procedural",
@@ -15,7 +15,7 @@
     },
     {
       "id": "rootways",
-      "name": "rootways",
+      "name": "Заросшие галереи",
       "tags": [],
       "biomeId": "overgrowth",
       "generationMode": "procedural",
@@ -27,7 +27,7 @@
     },
     {
       "id": "secret_cache",
-      "name": "secret_cache",
+      "name": "Тихая оранжерея",
       "tags": [],
       "biomeId": "overgrowth",
       "generationMode": "procedural",
@@ -39,7 +39,7 @@
     },
     {
       "id": "rust_gate",
-      "name": "rust_gate",
+      "name": "Ржавый рубеж",
       "tags": [],
       "biomeId": "foundry",
       "generationMode": "procedural",
@@ -51,7 +51,7 @@
     },
     {
       "id": "core_chamber",
-      "name": "core_chamber",
+      "name": "Последняя печь",
       "tags": [],
       "biomeId": "foundry",
       "generationMode": "procedural",

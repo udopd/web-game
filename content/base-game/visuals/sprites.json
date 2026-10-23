@@ -912,6 +912,678 @@
       "renderScale": 0.050955414012738856,
       "rotationOffsetDeg": 0,
       "layer": "floor"
+    },
+    {
+      "id": "animated_beetle_0",
+      "name": "beetle · frame 1",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "width": 221,
+        "height": 221
+      },
+      "pivot": {
+        "x": 110.5,
+        "y": 207.73999999999998
+      },
+      "renderScale": 0.14479638009049775,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_beetle_1",
+      "name": "beetle · frame 2",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 221,
+        "y": 0,
+        "width": 222,
+        "height": 221
+      },
+      "pivot": {
+        "x": 111,
+        "y": 207.73999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_beetle_2",
+      "name": "beetle · frame 3",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 443,
+        "y": 0,
+        "width": 222,
+        "height": 221
+      },
+      "pivot": {
+        "x": 111,
+        "y": 207.73999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_beetle_3",
+      "name": "beetle · frame 4",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 665,
+        "y": 0,
+        "width": 222,
+        "height": 221
+      },
+      "pivot": {
+        "x": 111,
+        "y": 207.73999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_beetle_4",
+      "name": "beetle · frame 5",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 887,
+        "y": 0,
+        "width": 221,
+        "height": 221
+      },
+      "pivot": {
+        "x": 110.5,
+        "y": 207.73999999999998
+      },
+      "renderScale": 0.14479638009049775,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_beetle_5",
+      "name": "beetle · frame 6",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 1108,
+        "y": 0,
+        "width": 222,
+        "height": 221
+      },
+      "pivot": {
+        "x": 111,
+        "y": 207.73999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_beetle_6",
+      "name": "beetle · frame 7",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 1330,
+        "y": 0,
+        "width": 222,
+        "height": 221
+      },
+      "pivot": {
+        "x": 111,
+        "y": 207.73999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_beetle_7",
+      "name": "beetle · frame 8",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 1552,
+        "y": 0,
+        "width": 222,
+        "height": 221
+      },
+      "pivot": {
+        "x": 111,
+        "y": 207.73999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_spore_0",
+      "name": "spore · frame 1",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 0,
+        "y": 221,
+        "width": 221,
+        "height": 222
+      },
+      "pivot": {
+        "x": 110.5,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.14479638009049775,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_spore_1",
+      "name": "spore · frame 2",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 221,
+        "y": 221,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_spore_2",
+      "name": "spore · frame 3",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 443,
+        "y": 221,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_spore_3",
+      "name": "spore · frame 4",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 665,
+        "y": 221,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_spore_4",
+      "name": "spore · frame 5",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 887,
+        "y": 221,
+        "width": 221,
+        "height": 222
+      },
+      "pivot": {
+        "x": 110.5,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.14479638009049775,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_spore_5",
+      "name": "spore · frame 6",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 1108,
+        "y": 221,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_spore_6",
+      "name": "spore · frame 7",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 1330,
+        "y": 221,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_spore_7",
+      "name": "spore · frame 8",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 1552,
+        "y": 221,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_sentry_0",
+      "name": "sentry · frame 1",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 0,
+        "y": 443,
+        "width": 221,
+        "height": 222
+      },
+      "pivot": {
+        "x": 110.5,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.14479638009049775,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_sentry_1",
+      "name": "sentry · frame 2",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 221,
+        "y": 443,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_sentry_2",
+      "name": "sentry · frame 3",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 443,
+        "y": 443,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_sentry_3",
+      "name": "sentry · frame 4",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 665,
+        "y": 443,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_sentry_4",
+      "name": "sentry · frame 5",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 887,
+        "y": 443,
+        "width": 221,
+        "height": 222
+      },
+      "pivot": {
+        "x": 110.5,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.14479638009049775,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_sentry_5",
+      "name": "sentry · frame 6",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 1108,
+        "y": 443,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_sentry_6",
+      "name": "sentry · frame 7",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 1330,
+        "y": 443,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_sentry_7",
+      "name": "sentry · frame 8",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 1552,
+        "y": 443,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.14414414414414414,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_reactor_0",
+      "name": "reactor · frame 1",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 0,
+        "y": 665,
+        "width": 221,
+        "height": 222
+      },
+      "pivot": {
+        "x": 110.5,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.2895927601809955,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_reactor_1",
+      "name": "reactor · frame 2",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 221,
+        "y": 665,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.2882882882882883,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_reactor_2",
+      "name": "reactor · frame 3",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 443,
+        "y": 665,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.2882882882882883,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_reactor_3",
+      "name": "reactor · frame 4",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 665,
+        "y": 665,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.2882882882882883,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_reactor_4",
+      "name": "reactor · frame 5",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 887,
+        "y": 665,
+        "width": 221,
+        "height": 222
+      },
+      "pivot": {
+        "x": 110.5,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.2895927601809955,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_reactor_5",
+      "name": "reactor · frame 6",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 1108,
+        "y": 665,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.2882882882882883,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_reactor_6",
+      "name": "reactor · frame 7",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 1330,
+        "y": 665,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.2882882882882883,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
+    },
+    {
+      "id": "animated_reactor_7",
+      "name": "reactor · frame 8",
+      "tags": [
+        "animated"
+      ],
+      "source": "assets/sprites/enemy-animations.png",
+      "frame": {
+        "x": 1552,
+        "y": 665,
+        "width": 222,
+        "height": 222
+      },
+      "pivot": {
+        "x": 111,
+        "y": 208.67999999999998
+      },
+      "renderScale": 0.2882882882882883,
+      "rotationOffsetDeg": 0,
+      "layer": "characters"
     }
   ]
 }

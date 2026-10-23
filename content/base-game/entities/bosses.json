@@ -5,10 +5,13 @@
       "id": "furnace",
       "name": "The Last Furnace",
       "tags": [],
-      "spriteId": "reactor",
+      "spriteId": "animated_reactor_0",
       "animationSet": {
-        "idle": "reactor_idle",
-        "death": "reactor_death"
+        "idle": "animated_reactor_idle",
+        "death": "animated_reactor_death",
+        "run": "animated_reactor_run",
+        "hurt": "animated_reactor_hurt",
+        "windup": "animated_reactor_windup"
       },
       "collision": {
         "shape": "circle",

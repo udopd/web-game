@@ -1,0 +1,40 @@
+[
+  {
+    "path": "content/base-game/assets/sprites/enemy-animations.png",
+    "bytes": 1651405,
+    "sha256": "7a7faa71235fb70392139fd5f21cd1393530a4b4d852d0e8aeb34f3e80cbcca9",
+    "width": 1774,
+    "height": 887
+  },
+  {
+    "path": "content/base-game/assets/sprites/objects.png",
+    "bytes": 834867,
+    "sha256": "1160c800a364b90869dde1c75db7fd1e479f04e43aae6d6414700a97f4ed023d",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "path": "content/base-game/assets/sprites/scout.png",
+    "bytes": 1058728,
+    "sha256": "911946002a9f91733dc1ff94cf7e169011ca3e579afb7712e4834283df6f6e2e",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "path": "content/base-game/assets/sprites/terrain.png",
+    "bytes": 1967200,
+    "sha256": "9f9e26dcfc95f9bda02fd7f51a941199bef8951248563d2cd79f46e64e378d60",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "path": "content/base-game/assets/audio/frontier.wav",
+    "bytes": 352844,
+    "sha256": "5c1c297d846e70d65dc5c56cad8b8a296f52e77c5334df8728fcd7f1cec7b35f"
+  },
+  {
+    "path": "content/base-game/assets/audio/shot.wav",
+    "bytes": 7982,
+    "sha256": "62d79b111fd51a272653feaf7469f8c001000a0768753dc551508691b75503fc"
+  }
+]

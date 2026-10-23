@@ -528,6 +528,554 @@
           "events": []
         }
       ]
+    },
+    {
+      "id": "animated_beetle_idle",
+      "name": "beetle · idle",
+      "tags": [
+        "animated"
+      ],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 280,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_beetle_0",
+          "durationMs": 280,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "animated_beetle_1",
+          "durationMs": 280,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_beetle_run",
+      "name": "beetle · run",
+      "tags": [
+        "animated"
+      ],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_beetle_2",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "animated_beetle_3",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_beetle_hurt",
+      "name": "beetle · hurt",
+      "tags": [
+        "animated"
+      ],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_beetle_4",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_beetle_windup",
+      "name": "beetle · windup",
+      "tags": [
+        "animated"
+      ],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_beetle_5",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_beetle_death",
+      "name": "beetle · death",
+      "tags": [
+        "animated"
+      ],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_beetle_6",
+          "durationMs": 180,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "animated_beetle_7",
+          "durationMs": 180,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_spore_idle",
+      "name": "spore · idle",
+      "tags": [
+        "animated"
+      ],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 280,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_spore_0",
+          "durationMs": 280,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "animated_spore_1",
+          "durationMs": 280,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_spore_run",
+      "name": "spore · run",
+      "tags": [
+        "animated"
+      ],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_spore_2",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "animated_spore_3",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_spore_hurt",
+      "name": "spore · hurt",
+      "tags": [
+        "animated"
+      ],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_spore_4",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_spore_windup",
+      "name": "spore · windup",
+      "tags": [
+        "animated"
+      ],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_spore_5",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_spore_death",
+      "name": "spore · death",
+      "tags": [
+        "animated"
+      ],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_spore_6",
+          "durationMs": 180,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "animated_spore_7",
+          "durationMs": 180,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_sentry_idle",
+      "name": "sentry · idle",
+      "tags": [
+        "animated"
+      ],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 280,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_sentry_0",
+          "durationMs": 280,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "animated_sentry_1",
+          "durationMs": 280,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_sentry_run",
+      "name": "sentry · run",
+      "tags": [
+        "animated"
+      ],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_sentry_2",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "animated_sentry_3",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_sentry_hurt",
+      "name": "sentry · hurt",
+      "tags": [
+        "animated"
+      ],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_sentry_4",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_sentry_windup",
+      "name": "sentry · windup",
+      "tags": [
+        "animated"
+      ],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_sentry_5",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_sentry_death",
+      "name": "sentry · death",
+      "tags": [
+        "animated"
+      ],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_sentry_6",
+          "durationMs": 180,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "animated_sentry_7",
+          "durationMs": 180,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_reactor_idle",
+      "name": "reactor · idle",
+      "tags": [
+        "animated"
+      ],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 280,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_reactor_0",
+          "durationMs": 280,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "animated_reactor_1",
+          "durationMs": 280,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_reactor_run",
+      "name": "reactor · run",
+      "tags": [
+        "animated"
+      ],
+      "loop": true,
+      "holdLastFrame": false,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_reactor_2",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "animated_reactor_3",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_reactor_hurt",
+      "name": "reactor · hurt",
+      "tags": [
+        "animated"
+      ],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_reactor_4",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_reactor_windup",
+      "name": "reactor · windup",
+      "tags": [
+        "animated"
+      ],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_reactor_5",
+          "durationMs": 120,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "animated_reactor_death",
+      "name": "reactor · death",
+      "tags": [
+        "animated"
+      ],
+      "loop": false,
+      "holdLastFrame": true,
+      "defaultFrameDurationMs": 120,
+      "direction": "any",
+      "frames": [
+        {
+          "spriteId": "animated_reactor_6",
+          "durationMs": 180,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        },
+        {
+          "spriteId": "animated_reactor_7",
+          "durationMs": 180,
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "events": []
+        }
+      ]
     }
   ]
 }

@@ -23,7 +23,7 @@ import {
   DEFAULT_SETTINGS,
   type UserSettings,
 } from "../../../packages/shared-types/src/index";
-import { GameView } from "../../../packages/presentation/src/game-view";
+import type { GameView } from "../../../packages/presentation/src/game-view";
 import "./style.css";
 type Pack = Awaited<ReturnType<typeof loadPublishedContent>>;
 type Profile = {
@@ -166,7 +166,8 @@ function App() {
         if (msg.type === "room") setRoom(msg.room);
         if (msg.type === "snapshot") {
           worldRef.current = msg.state;
-          view.current?.snapshot(msg.state);
+          const currentView = view.current;
+          if(currentView && currentView.options.registry.version===msg.state.contentVersion)currentView.snapshot(msg.state);
           setWorld(msg.state);
         }
         if (msg.type === "events" && view.current) {
@@ -201,7 +202,8 @@ function App() {
       room.status === "lobby"
     )
       return;
-    const v = new GameView({
+    let cancelled=false;let v:GameView|undefined;
+    void import('../../../packages/presentation/src/game-view').then(({GameView})=>{if(cancelled||!container.current)return;v = new GameView({
       parent: container.current,
       registry: pack.registry,
       assetUrl: pack.assetUrl,
@@ -214,12 +216,14 @@ function App() {
       },
     });
     view.current = v;
-    if (worldRef.current) v.snapshot(worldRef.current);
+    if (worldRef.current?.contentVersion===pack.registry.version) v.snapshot(worldRef.current);
+    }).catch(e=>setError(e.message));
     return () => {
-      v.dispose();
+      cancelled=true;v?.dispose();
       view.current = undefined;
     };
   }, [pack, profile?.uid, room?.id, room?.status === "lobby", tab]);
+  useEffect(()=>{if(!room||!pack||room.contentVersion===pack.registry.version)return;let cancelled=false;void loadPublishedContent(room.contentVersion).then(loaded=>{if(cancelled){loaded.dispose();return;}const previous=packRef.current;packRef.current=loaded;setPack(loaded);setTimeout(()=>previous?.dispose(),1000);}).catch(e=>setError(e.message));return()=>{cancelled=true;};},[room?.contentVersion,pack?.registry.version]);
   useEffect(() => {
     if (profile) view.current?.updateSettings(profile.settings);
   }, [profile?.settings]);

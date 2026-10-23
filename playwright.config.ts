@@ -11,7 +11,7 @@ export default defineConfig({
     baseURL: process.env.APP_ORIGIN ?? "http://localhost:3100",
     viewport: { width: 1440, height: 900 },
     browserName: "chromium",
-    channel: "chrome",
+    channel: process.env.PLAYWRIGHT_CHANNEL ?? "chrome",
     headless: true,
     screenshot: "only-on-failure",
     trace: "off",

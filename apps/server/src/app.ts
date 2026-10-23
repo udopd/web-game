@@ -55,7 +55,7 @@ const settingsSchema = obj({
   ),
 });
 export async function createApp(
-  options: { serveStatic?: boolean; logger?: boolean } = {},
+  options: { serveStatic?: boolean; logger?: boolean; restoreRooms?: boolean } = {},
 ) {
   const app = Fastify({
     logger: options.logger ?? true,
@@ -97,7 +97,7 @@ export async function createApp(
   await storage.init();
   const content = new ContentService(storage),
     rooms = new RoomManager(content, (e) => app.log.error(e));
-  await rooms.init();
+  await rooms.init(options.restoreRooms);
   app.addHook("onClose", async () => {
     await rooms.close();
   });
@@ -123,6 +123,7 @@ export async function createApp(
     async (req, reply) => {
       requireOrigin(req);
       const { name } = req.body as { name: string };
+      if(name.trim().length<2)throw new HttpError(400,'Name must contain at least two non-whitespace characters');
       const user = await db.user.create({
         data: {
           name: name.trim(),
@@ -139,7 +140,7 @@ export async function createApp(
       where: { uid: req.auth!.uid! },
       include: { unlocks: true },
     });
-    return { ...user, csrf: req.auth!.csrf, rooms: rooms.activeFor(user.uid) };
+    return { ...user, csrf: req.auth!.csrf, rooms: rooms.currentFor(user.uid) };
   });
   app.get(
     "/api/users/me/settings",
@@ -270,6 +271,7 @@ export async function createApp(
   );
   app.get<{ Params: { version: string; "*": string } }>(
     "/api/content/:version/files/*",
+    {config:{rateLimit:{max:1200,timeWindow:'1 minute'}}},
     async (req, reply) => {
       const path = req.params["*"];
       const data = await content.publicFile(req.params.version, path);

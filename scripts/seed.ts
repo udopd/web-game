@@ -31,17 +31,17 @@ try {
     }
   }
   await db.draft.upsert({
-    where: { id: "emberfall" },
+    where: { id: "emberfall-1.1.0" },
     create: {
-      id: "emberfall",
-      name: "Emberfall",
+      id: "emberfall-1.1.0",
+      name: "Emberfall · 1.1.0",
       content: json(content),
       ui: {},
     },
     update: {},
   });
-  if (!(await db.pack.findUnique({ where: { version: "1.0.0" } })))
-    await service.publish(content, "1.0.0");
+  if (!(await db.pack.findUnique({ where: { version: "1.1.0" } })))
+    await service.publish(content, "1.1.0");
   console.log("Base content and draft seeded. Existing data preserved.");
 } finally {
   await db.$disconnect();
